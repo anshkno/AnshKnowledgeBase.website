@@ -1,949 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Registration - AnshKnowledgeBase</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<!-- PDF Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<meta name="theme-color" content="#c40000">
+
+<title>Student Registration | AnshKnowledgeBase</title>
+
+<!-- PDF Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-
-    background-image:url("background.png");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    color:#222;
+html {
+    scroll-behavior: smooth;
 }
 
-.header{
-    background:#c40000;
-    color:white;
-    padding:20px;
-    text-align:center;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        linear-gradient(rgba(240,248,255,0.90), rgba(240,248,255,0.90)),
+        url("background.png") center/cover fixed no-repeat;
+    color: #171717;
+    min-height: 100vh;
 }
 
-.header h1{
-    margin:0;
-    font-size:30px;
+/* ================= TOP BAR ================= */
+
+.top-bar {
+    background: #111111;
+    color: white;
+    text-align: center;
+    padding: 9px 15px;
+    font-size: 14px;
+    letter-spacing: 0.4px;
 }
 
-.header p{
-    margin:7px 0 0;
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: rgba(255,255,255,0.97);
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.container{
-    max-width:900px;
-    margin:30px auto;
-    background:rgba(255,255,255,0.96);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.25);
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
 }
 
-.logo-area{
-    text-align:center;
-    margin-bottom:20px;
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#ef1717,#b40000);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(200,0,0,0.25);
 }
 
-.logo-area h2{
-    color:#c40000;
-    margin-bottom:5px;
+.brand-name {
+    font-size: 23px;
+    font-weight: 800;
 }
 
-.logo-area p{
-    color:#777;
+.brand-name span {
+    color: #c40000;
 }
 
-.section-title{
-    color:#b00000;
-    border-bottom:3px solid #e00000;
-    padding-bottom:8px;
-    margin-top:30px;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-label{
-    display:block;
-    font-weight:bold;
-    margin-top:18px;
-    margin-bottom:7px;
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 10px;
+}
+
+.nav-links a:hover {
+    background: #fff0f0;
+    color: #c40000;
+}
+
+.nav-join {
+    background: #d00000 !important;
+    color: white !important;
+    box-shadow: 0 6px 18px rgba(210,0,0,0.22);
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: #fff0f0;
+    color: #b40000;
+    font-weight: 700;
+    font-size: 13px;
+    border: 1px solid #ffd0d0;
+    margin-bottom: 18px;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.page-header h1 span {
+    color: #c40000;
+}
+
+.page-header p {
+    max-width: 760px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ================= MAIN FORM ================= */
+
+.form-wrapper {
+    width: min(1050px, 94%);
+    margin: 15px auto 70px;
+    background: rgba(255,255,255,0.97);
+    border-radius: 24px;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.12);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.form-top {
+    background: linear-gradient(135deg,#c90000,#ef1717);
+    color: white;
+    padding: 28px 35px;
+}
+
+.form-top h2 {
+    font-size: 26px;
+    margin-bottom: 7px;
+}
+
+.form-top p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+form {
+    padding: 35px;
+}
+
+/* ================= SECTION ================= */
+
+.form-section {
+    margin-bottom: 34px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #a90000;
+    font-size: 21px;
+    font-weight: 800;
+    border-bottom: 2px solid #c90000;
+    padding-bottom: 12px;
+    margin-bottom: 23px;
+}
+
+.section-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #c90000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* ================= GRID ================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 21px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #292929;
+}
+
+.required {
+    color: #c00000;
 }
 
 input,
 select,
-textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #aaa;
-    border-radius:8px;
-    font-size:16px;
+textarea {
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    border-radius: 11px;
+    padding: 14px 15px;
+    font-size: 15px;
+    background: #fff;
+    color: #222;
+    outline: none;
+    transition: 0.2s;
 }
 
-textarea{
-    min-height:90px;
-    resize:vertical;
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #c90000;
+    box-shadow: 0 0 0 3px rgba(201,0,0,0.08);
 }
 
-.radio-group{
-    display:flex;
-    gap:20px;
-    margin-top:8px;
+textarea {
+    min-height: 105px;
+    resize: vertical;
 }
 
-.radio-group label{
-    font-weight:normal;
-    margin:0;
+/* ================= RADIO ================= */
+
+.radio-group {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    padding-top: 9px;
 }
 
-.radio-group input{
-    width:auto;
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
 }
 
-.photo-box{
-    text-align:center;
-    margin:20px 0;
+.radio-option input {
+    width: auto;
 }
 
-.photo-preview{
-    width:130px;
-    height:160px;
-    border:2px dashed #c40000;
-    border-radius:10px;
-    object-fit:cover;
-    display:block;
-    margin:15px auto;
+/* ================= PHOTO ================= */
+
+.photo-area {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 25px;
+    align-items: center;
+    background: #fafafa;
+    border: 1px dashed #d2d2d2;
+    border-radius: 16px;
+    padding: 20px;
 }
 
-.button-area{
-    text-align:center;
-    margin-top:35px;
+.photo-preview {
+    width: 150px;
+    height: 175px;
+    border-radius: 12px;
+    background: #eeeeee;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #777;
+    text-align: center;
+    font-size: 13px;
 }
 
-button{
-    border:none;
-    background:#d00000;
-    color:white;
-    padding:15px 30px;
-    border-radius:8px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-button:hover{
-    background:#a00000;
+.photo-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
 }
 
-#successMessage{
-    display:none;
-    background:#e8ffe8;
-    color:#087508;
-    padding:15px;
-    border-radius:8px;
-    text-align:center;
-    margin-top:20px;
-    font-weight:bold;
+.photo-info p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 14px;
 }
 
-/* PDF DESIGN */
-
-#pdfContent{
-    position:absolute;
-    left:-10000px;
-    top:0;
-
-    width:794px;
-    min-height:1123px;
-
-    background:white;
-    padding:35px;
-
-    color:#222;
+.photo-info input {
+    background: white;
 }
 
-.pdf-header{
-    text-align:center;
-    border-bottom:4px solid #c40000;
-    padding-bottom:15px;
+/* ================= NOTICE ================= */
+
+.notice {
+    background: #fff8e8;
+    border: 1px solid #f2d58b;
+    color: #6d5314;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
-.pdf-header h1{
-    color:#c40000;
-    margin:0;
-    font-size:30px;
+/* ================= BUTTON ================= */
+
+.submit-area {
+    text-align: center;
+    padding-top: 8px;
 }
 
-.pdf-header p{
-    margin:5px;
+.submit-btn {
+    border: none;
+    background: linear-gradient(135deg,#d00000,#ef1717);
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+    padding: 17px 34px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 9px 25px rgba(205,0,0,0.25);
+    transition: 0.2s;
 }
 
-.pdf-photo{
-    width:120px;
-    height:150px;
-    object-fit:cover;
-    border:2px solid #c40000;
-    float:right;
-    margin-left:20px;
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 30px rgba(205,0,0,0.32);
 }
 
-.pdf-section{
-    margin-top:25px;
+.submit-btn:active {
+    transform: translateY(0);
 }
 
-.pdf-section h2{
-    color:#c40000;
-    border-bottom:2px solid #e00000;
-    padding-bottom:5px;
+/* ================= SUCCESS ================= */
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    padding: 17px;
+    border-radius: 12px;
+    background: #e9f9ee;
+    border: 1px solid #a8dfb7;
+    color: #17652d;
+    text-align: center;
+    font-weight: 700;
 }
 
-.pdf-row{
-    margin:9px 0;
-    font-size:15px;
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #111;
+    color: white;
+    padding: 40px 6% 25px;
 }
 
-.pdf-footer{
-    margin-top:35px;
-    border-top:2px solid #ddd;
-    padding-top:15px;
-    text-align:center;
-    color:#555;
+.footer-grid {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 35px;
 }
 
-@media(max-width:600px){
+.footer h3 {
+    margin-bottom: 14px;
+    font-size: 19px;
+}
 
-    .container{
-        margin:15px;
-        padding:20px;
+.footer p,
+.footer a {
+    color: #cfcfcf;
+    line-height: 1.8;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1050px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 12px 4%;
     }
 
-    .header h1{
-        font-size:24px;
+    .nav-links {
+        gap: 3px;
     }
 
-    .radio-group{
-        flex-direction:column;
-        gap:8px;
+    .nav-links a {
+        padding: 9px 8px;
+        font-size: 13px;
     }
 
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .page-header {
+        padding: 38px 18px 22px;
+    }
+
+    .page-header h1 {
+        font-size: 31px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    form {
+        padding: 22px 18px;
+    }
+
+    .form-top {
+        padding: 23px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .photo-area {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .photo-preview {
+        margin: auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
+@media (max-width: 500px) {
+
+    .top-bar {
+        font-size: 11px;
+    }
+
+    .nav-links a:not(.nav-join) {
+        display: none;
+    }
+
+    .nav-join {
+        padding: 10px 13px !important;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .form-wrapper {
+        width: 96%;
+        border-radius: 18px;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
 </style>
-
 </head>
-
 
 <body>
 
+<!-- ================= TOP BAR ================= -->
 
-<div class="header">
-
-    <h1>AnshKnowledgeBase</h1>
-
-    <p>Quality Tuition & Learning</p>
-
+<div class="top-bar">
+    Admissions • Quality Learning • Strong Concepts • Better Results
 </div>
 
+<!-- ================= NAVBAR ================= -->
 
-<div class="container">
+<nav class="navbar">
 
-
-<div class="logo-area">
-
-    <h2>Student Registration</h2>
-
-    <p>Please fill in all the required details carefully.</p>
-
-</div>
-
-
-<form id="registrationForm">
-
-
-<h2 class="section-title">Student Details</h2>
-
-
-<label>Student Full Name</label>
-
-<input
-type="text"
-id="studentName"
-placeholder="Enter student's full name"
-required
->
-
-
-<label>Date of Birth</label>
-
-<input
-type="date"
-id="dob"
-required
->
-
-
-<label>Gender</label>
-
-<div class="radio-group">
-
-<label>
-<input type="radio" name="gender" value="Male" required>
-Male
-</label>
-
-<label>
-<input type="radio" name="gender" value="Female">
-Female
-</label>
-
-<label>
-<input type="radio" name="gender" value="Other">
-Other
-</label>
-
-</div>
-
-
-<label>Class</label>
-
-<select id="studentClass" required>
-
-<option value="">Select Class</option>
-
-<option>Class 6</option>
-<option>Class 7</option>
-<option>Class 8</option>
-<option>Class 9</option>
-<option>Class 10</option>
-<option>Class 11</option>
-<option>Class 12</option>
-
-</select>
-
-
-<label>School Name</label>
-
-<input
-type="text"
-id="school"
-placeholder="Enter school name"
-required
->
-
-
-<label>Subjects Required</label>
-
-<select id="subjects" required>
-
-<option value="">Select Subjects</option>
-
-<option>All Subjects</option>
-<option>Mathematics</option>
-<option>Science</option>
-<option>English</option>
-<option>Hindi</option>
-<option>Gujarati</option>
-<option>Social Science</option>
-<option>Computer Science</option>
-<option>Commerce</option>
-
-</select>
-
-
-<div class="photo-box">
-
-<h2 class="section-title">Student Photo</h2>
-
-<label>Upload Student Photo</label>
-
-<input
-type="file"
-id="studentPhoto"
-accept="image/*"
-required
->
-
-<img
-id="photoPreview"
-class="photo-preview"
-src=""
-alt="Photo Preview"
->
-
-</div>
-
-
-<h2 class="section-title">Parent / Guardian Details</h2>
-
-
-<label>Father's Name</label>
-
-<input
-type="text"
-id="fatherName"
-placeholder="Enter father's name"
-required
->
-
-
-<label>Mother's Name</label>
-
-<input
-type="text"
-id="motherName"
-placeholder="Enter mother's name"
->
-
-
-<label>Parent / Guardian Mobile Number</label>
-
-<input
-type="tel"
-id="parentPhone"
-placeholder="Enter mobile number"
-required
->
-
-
-<label>Email Address</label>
-
-<input
-type="email"
-id="email"
-placeholder="Enter email address"
->
-
-
-<h2 class="section-title">Address Details</h2>
-
-
-<label>Full Address</label>
-
-<textarea
-id="address"
-placeholder="Enter complete address"
-required
-></textarea>
-
-
-<label>City</label>
-
-<input
-type="text"
-id="city"
-placeholder="Enter city"
->
-
-
-<label>State</label>
-
-<input
-type="text"
-id="state"
-placeholder="Enter state"
->
-
-
-<label>PIN Code</label>
-
-<input
-type="text"
-id="pincode"
-placeholder="Enter PIN code"
->
-
-
-<h2 class="section-title">Additional Information</h2>
-
-
-<label>Previous Academic Performance</label>
-
-<textarea
-id="performance"
-placeholder="Enter previous academic details"
-></textarea>
-
-
-<label>Any Other Information</label>
-
-<textarea
-id="other"
-placeholder="Enter any additional information"
-></textarea>
-
-
-<div class="button-area">
-
-<button type="submit">
-
-Register & Download PDF
-
-</button>
-
-</div>
-
-
-</form>
-
-
-<div id="successMessage">
-
-Registration details prepared successfully.
-Your PDF download should start automatically.
-
-</div>
-
-
-</div>
-
-
-
-<!-- PDF CONTENT -->
-
-<div id="pdfContent">
-
-
-<div class="pdf-header">
-
-<h1>AnshKnowledgeBase</h1>
-
-<p>Quality Tuition & Learning</p>
-
-<p>Student Registration Form</p>
-
-</div>
-
-
-<img
-id="pdfPhoto"
-class="pdf-photo"
-src=""
-alt="Student Photo"
->
-
-
-<div class="pdf-section">
-
-<h2>Student Details</h2>
-
-<div class="pdf-row">
-<strong>Name:</strong>
-<span id="pdfName"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Date of Birth:</strong>
-<span id="pdfDob"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Gender:</strong>
-<span id="pdfGender"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Class:</strong>
-<span id="pdfClass"></span>
-</div>
-
-<div class="pdf-row">
-<strong>School:</strong>
-<span id="pdfSchool"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Subjects Required:</strong>
-<span id="pdfSubjects"></span>
-</div>
-
-</div>
-
-
-<div class="pdf-section">
-
-<h2>Parent / Guardian Details</h2>
-
-<div class="pdf-row">
-<strong>Father's Name:</strong>
-<span id="pdfFather"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Mother's Name:</strong>
-<span id="pdfMother"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Mobile:</strong>
-<span id="pdfPhone"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Email:</strong>
-<span id="pdfEmail"></span>
-</div>
-
-</div>
-
-
-<div class="pdf-section">
-
-<h2>Address</h2>
-
-<div class="pdf-row">
-<strong>Address:</strong>
-<span id="pdfAddress"></span>
-</div>
-
-<div class="pdf-row">
-<strong>City:</strong>
-<span id="pdfCity"></span>
-</div>
-
-<div class="pdf-row">
-<strong>State:</strong>
-<span id="pdfState"></span>
-</div>
-
-<div class="pdf-row">
-<strong>PIN Code:</strong>
-<span id="pdfPincode"></span>
-</div>
-
-</div>
-
-
-<div class="pdf-section">
-
-<h2>Additional Information</h2>
-
-<div class="pdf-row">
-<strong>Academic Performance:</strong>
-<span id="pdfPerformance"></span>
-</div>
-
-<div class="pdf-row">
-<strong>Other Information:</strong>
-<span id="pdfOther"></span>
-</div>
-
-</div>
-
-
-<div class="pdf-footer">
-
-<p><strong>AnshKnowledgeBase</strong></p>
-
-<p>Quality Tuition & Learning</p>
-
-<p>Thank you for registering with us.</p>
-
-<p>This registration form is generated electronically.</p>
-
-</div>
-
-
-</div>
-
-
-
-<script>
-
-let photoData = "";
-
-
-/* PHOTO PREVIEW */
-
-document
-.getElementById("studentPhoto")
-.addEventListener("change", function(event){
-
-    const file = event.target.files[0];
-
-    if(!file){
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-        photoData = e.target.result;
-
-        document
-        .getElementById("photoPreview")
-        .src = photoData;
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
-
-
-
-/* FORM SUBMIT */
-
-document
-.getElementById("registrationForm")
-.addEventListener("submit", async function(event){
-
-    event.preventDefault();
-
-
-    if(!photoData){
-
-        alert("Please upload the student's photo.");
-
-        return;
-
-    }
-
-
-    /* GET VALUES */
-
-    const name =
-    document.getElementById("studentName").value;
-
-    const dob =
-    document.getElementById("dob").value;
-
-    const gender =
-    document.querySelector('input[name="gender"]:checked').value;
-
-    const studentClass =
-    document.getElementById("studentClass").value;
-
-    const school =
-    document.getElementById("school").value;
-
-    const subjects =
-    document.getElementById("subjects").value;
-
-    const father =
-    document.getElementById("fatherName").value;
-
-    const mother =
-    document.getElementById("motherName").value;
-
-    const phone =
-    document.getElementById("parentPhone").value;
-
-    const email =
-    document.getElementById("email").value;
-
-    const address =
-    document.getElementById("address").value;
-
-    const city =
-    document.getElementById("city").value;
-
-    const state =
-    document.getElementById("state").value;
-
-    const pincode =
-    document.getElementById("pincode").value;
-
-    const performance =
-    document.getElementById("performance").value;
-
-    const other =
-    document.getElementById("other").value;
-
-
-
-    /* PUT DATA INTO PDF */
-
-    document.getElementById("pdfName").textContent = name;
-
-    document.getElementById("pdfDob").textContent = dob;
-
-    document.getElementById("pdfGender").textContent = gender;
-
-    document.getElementById("pdfClass").textContent = studentClass;
-
-    document.getElementById("pdfSchool").textContent = school;
-
-    document.getElementById("pdfSubjects").textContent = subjects;
-
-    document.getElementById("pdfFather").textContent = father;
-
-    document.getElementById("pdfMother").textContent = mother;
-
-    document.getElementById("pdfPhone").textContent = phone;
-
-    document.getElementById("pdfEmail").textContent = email;
-
-    document.getElementById("pdfAddress").textContent = address;
-
-    document.getElementById("pdfCity").textContent = city;
-
-    document.getElementById("pdfState").textContent = state;
-
-    document.getElementById("pdfPincode").textContent = pincode;
-
-    document.getElementById("pdfPerformance").textContent = performance || "Not provided";
-
-    document.getElementById("pdfOther").textContent = other || "Not provided";
-
-    document.getElementById("pdfPhoto").src = photoData;
-
-
-
-    /* WAIT FOR IMAGE */
-
-    await new Promise(function(resolve){
-
-        const img = document.getElementById("pdfPhoto");
-
-        if(img.complete){
-
-            resolve();
-
-        }else{
-
-            img.onload = resolve;
-
-        }
-
-    });
-
-
-
-    try{
-
-
-        const pdfArea =
-        document.getElementById("pdfContent");
-
-
-        /* MAKE PDF IMAGE */
-
-        const canvas =
-        await html2canvas(pdfArea, {
-
-            scale:2,
-
-            useCORS:true,
-
-            backgroundColor:"#ffffff"
-
-        });
-
-
-        const imageData =
-        canvas.toDataURL("image/jpeg", 0.95);
-
-
-        /* CREATE PDF */
-
-        const { jsPDF } = window.jspdf;
-
-        const pdf =
-        new jsPDF("p","mm","a4");
-
-
-        const pageWidth =
-        pdf.internal.pageSize.getWidth();
-
-        const pageHeight =
-        pdf.internal.pageSize.getHeight();
-
-
-        const imgWidth =
-        pageWidth;
-
-        const imgHeight =
-        canvas.height * imgWidth / canvas.width;
-
-
-        let heightLeft =
-        imgHeight;
-
-        let position = 0;
-
-
-        pdf.addImage(
-            imageData,
-            "JPEG",
-            0,
-            position,
-            imgWidth,
-            imgHeight
-        );
-
-
-        heightLeft -= pageHeight;
-
-
-        while(heightLeft > 0){
-
-            position =
-            heightLeft - imgHeight;
-
-            pdf.addPage();
-
-            pdf.addImage(
-                imageData,
-                "JPEG",
-                0,
-                position,
-                imgWidth,
-                imgHeight
-            );
-
-            heightLeft -= pageHeight;
-
-        }
-
-
-        /* FILE NAME */
-
-        const safeName =
-        name
-        .replace(/[^a-z0-9]/gi,"_")
-        .substring(0,50);
-
-
-        pdf.save(
-            "AnshKnowledgeBase_Registration_" +
-            safeName +
-            ".pdf"
-        );
-
-
-        document
-        .getElementById("successMessage")
-        .style.display = "block";
-
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-        "PDF बनाते समय समस्या हुई। कृपया Internet चालू करके दोबारा कोशिश करें।"
-        );
-
-    }
-
-});
-
-</script>
-
-
-</body>
-
-</html>
+    <div class="brand">
+        <div class="brand-logo">A</div>
+
+        <div class="brand-name">
+            Ansh<span>KnowledgeBase</span>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-join" href="join.html">Join Now</a>
+    </div>
+
+</nav>
+
+<!-- ================= HEADER ================= -->
+
+<header class="page-header">
+
+    <div class="badge">
+        STUDENT ADMISSION • 2026–27
+    </div>
+
+    <h1>
+        Join <span>AnshKnowledgeBase</span>
+    </h1>
+
+    <p>
+        Complete the admission form carefully. After submitting,
+        your registration details will be converted into a professionally
+        designed PDF containing your information and photograph.
+    </p>
+
+</header>
+
+<!-- ================= FORM ================= -->
+
+<div class="form-wrapper">
+
+    <div class="form-top">
+        <h2>Student Registration Form</h2>
+        <p>
+            Please enter accurate information in all required fields.
+        </p>
+    </div>
+
+    <form id="registrationForm"
+          autocomplete="off"
+          enctype="multipart/form-data">
+
+        <!-- STUDENT DETAILS -->
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <div class="section-number">1</div>
+                Student Details
+            </div>
+
+            <div class="form-grid">
+
+                <div class="field full">
+                    <label>
+                        Student Full Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        name="studentName"
+                        placeholder="Enter student's full name"
+                        autocomplete="off"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Date of Birth <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Gender <span class="required">*</span>
+                    </label>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input type="radio"
+                                   name="gender"
+                                   value="Male"
+                                   required>
+                            Male
+                        </label>
+
+                        <label class="radio-option">
+                            <input type="radio"
+                                   name="gender"
+                                   value="Female">
+                            Female
+                        </label>
+
+                        <label class="radio-option">
+                            <input type="radio"
+                                   name="gender"
+                                   value="Other">
+                            Other
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Class <span class="required">*</span>
+                    </label>
+
+                    <select id="className"
+                            name="className"
+                            required>
+
+                        <option value="">Select Class</option>
+                        <option>Class 6</option>
+                        <option>Class 7</option>
+                        <option>Class 8</option>
+                        <option>Class 9</option>
+                        <option>Class 10</option>
+                        <option>Class 11</option>
+                        <option>Class 12</option>
+
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>
+                        School Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="school"
+                        name="school"
+                        placeholder="Enter school name"
+                        autocomplete="off"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Medium
+                    </label>
+
+                    <select id="medium" name="medium">
+
+                        <option value="">Select Medium</option>
+                        <option>English</option>
+                        <option>Hindi</option>
+                        <option>Gujarati</option>
+
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Subjects Required <span class="required">*</span>
+                    </label>
+
+                    <select id="subjects"
+                            name="subjects"
+                            required>
+
+                        <option value="">Select Subjects</option>
+                        <option>All Subjects</option>
+                        <option>Mathematics</option>
+                        <option>Science</option>
+                        <option>Mathematics & Science</option>
+                        <option>English</option>
+                        <option>Social Science</option>
+                        <option>Commerce</option>
+                        <option>Other</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PHOTO -->
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <div class="section-number">2</div>
+                Student Photograph
+            </div>
+
+            <div class="photo-area">
+
+                <div class="photo-preview"
+                     id="photoPreview">
+
+                    Photo Preview
+
+                </div>
+
+                <div class="photo-info">
+
+                    <h3>Upload Student Photo</h3>
+
+                    <p>
+                        Please upload a clear recent photograph.
+                        The photograph will be included in the
+                        registration PDF.
+                    </p>
+
+                    <input
+                        type="file"
+                        id="studentPhoto"
+                        name="studentPhoto"
+                        accept="image/*"
+                        required>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PARENT DETAILS -->
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <div class="section-number">3</div>
+                Parent / Guardian Details
+            </div>
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>
+                        Father's Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fatherName"
+                        name="fatherName"
+                        placeholder="Father's full name"
+                        autocomplete="off"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Mother's Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="motherName"
+                        name="motherName"
+                        placeholder="Mother's full name"
+                        autocomplete="off"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Parent / Guardian Mobile <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="parentMobile"
+                        name="parentMobile"
+                        placeholder="10-digit mobile number"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        maxlength="10"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Parent Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="parentEmail"
+                        name="parentEmail"
+                        placeholder="example@gmail.com"
+                        autocomplete="off">
+                </div>
+
+                <div class="field full">
+                    <label>
+                        Occupation of Parent / Guardian
+                    </label>
+
+                    <input
+                        type="text"
+                        id="occupation"
+                        name="occupation"
+                        placeholder="Enter occupation"
+                        autocomplete="off">
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADDRESS -->
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <div class="section-number">4</div>
+                Address Details
+            </div>
+
+            <div class="form-grid">
+
+                <div class="field full">
+                    <label>
+                        Complete Address <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter complete residential address"
+                        autocomplete="off"
+                        required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>
+                        City <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value="Surat"
+                        autocomplete="off"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label>
+                
