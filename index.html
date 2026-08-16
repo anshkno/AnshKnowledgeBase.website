@@ -7,8 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AnshKnowledgeBase - Quality Tuition & Learning</title>
-
+  <title>AnshKnowledgeBase | Quality Tuition</title>
 
   <style>
 
@@ -17,326 +16,247 @@
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
-
       font-family: Arial, Helvetica, sans-serif;
 
+      /* Your Background Image */
       background-image: url("Background 2.png");
-
       background-size: cover;
-
       background-position: center;
-
+      background-repeat: no-repeat;
       background-attachment: fixed;
 
-      background-repeat: no-repeat;
-
       color: #222;
-
     }
-
-
-    /* Main transparent layer */
 
     .page {
-
       min-height: 100vh;
-
-      background: rgba(255, 255, 255, 0.60);
-
+      background: rgba(255, 255, 255, 0.58);
     }
 
 
-    /* Navigation Bar */
+    /* ================= NAVBAR ================= */
 
     .navbar {
-
-      background: rgba(170, 0, 0, 0.95);
-
+      background: rgba(160, 0, 0, 0.96);
       padding: 15px 25px;
 
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
 
       position: sticky;
-
       top: 0;
-
       z-index: 1000;
-
     }
-
 
     .logo {
-
       color: white;
-
       font-size: 24px;
-
       font-weight: bold;
-
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-    .nav-buttons a {
-
-      display: inline-block;
-
+    .nav-links a {
       color: white;
-
       text-decoration: none;
 
-      margin-left: 8px;
+      padding: 10px 14px;
 
-      padding: 9px 13px;
-
-      border-radius: 6px;
+      border-radius: 7px;
 
       font-weight: bold;
-
     }
 
-
-    .nav-buttons a:hover {
-
+    .nav-links a:hover {
       background: #ffb300;
-
-      color: #7a0000;
-
+      color: #700000;
     }
 
 
-    /* Hero Section */
+    /* ================= HERO ================= */
 
     .hero {
-
       text-align: center;
-
-      padding: 80px 20px;
-
+      padding: 85px 20px 75px;
     }
-
 
     .hero h1 {
-
-      font-size: 48px;
-
       color: #b00000;
-
-      margin-bottom: 15px;
-
+      font-size: 48px;
+      margin: 0 0 15px;
     }
-
 
     .hero h2 {
-
-      color: #d87900;
-
+      color: #d87800;
       font-size: 26px;
-
+      margin-bottom: 20px;
     }
 
-
     .hero p {
-
-      max-width: 750px;
-
+      max-width: 800px;
       margin: auto;
 
       font-size: 19px;
-
       line-height: 1.7;
-
     }
 
-
-    .main-button {
-
+    .hero-button {
       display: inline-block;
 
-      margin-top: 25px;
+      margin-top: 28px;
 
-      padding: 14px 28px;
+      padding: 15px 30px;
 
       background: #d00000;
-
       color: white;
 
       text-decoration: none;
 
-      border-radius: 8px;
+      border-radius: 9px;
 
       font-size: 18px;
-
       font-weight: bold;
-
     }
 
-
-    .main-button:hover {
-
+    .hero-button:hover {
       background: #ff9800;
-
+      color: #650000;
     }
 
 
-    /* General Sections */
+    /* ================= SECTIONS ================= */
 
     .section {
-
       max-width: 1100px;
 
       margin: 30px auto;
 
       padding: 35px;
 
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(255, 255, 255, 0.91);
 
       border-radius: 18px;
 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
     }
 
-
     .section h2 {
-
       text-align: center;
 
       color: #b00000;
 
       font-size: 30px;
 
+      margin-top: 0;
       margin-bottom: 20px;
-
     }
-
 
     .section p {
-
       font-size: 17px;
-
       line-height: 1.7;
-
     }
 
 
-    /* Subjects */
+    /* ================= SUBJECTS ================= */
 
     .subjects {
-
       display: grid;
 
       grid-template-columns: repeat(4, 1fr);
 
-      gap: 15px;
+      gap: 16px;
 
       margin-top: 25px;
-
     }
 
-
     .subject {
-
-      background: linear-gradient(135deg, #fff3cd, #ffe0b2);
-
       padding: 20px;
 
       text-align: center;
+
+      background: linear-gradient(
+        135deg,
+        #fff3cd,
+        #ffe0a3
+      );
+
+      color: #850000;
 
       border-radius: 12px;
 
       font-weight: bold;
 
-      color: #8b0000;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
 
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-
+      transition: 0.2s;
     }
-
 
     .subject:hover {
-
       transform: translateY(-4px);
-
     }
 
 
-    /* Features */
+    /* ================= FEATURES ================= */
 
     .features {
-
       display: grid;
 
       grid-template-columns: repeat(3, 1fr);
 
       gap: 20px;
-
     }
 
-
     .feature {
+      padding: 22px;
 
       background: #fff8e1;
 
-      padding: 22px;
-
-      border-radius: 12px;
-
       border-left: 5px solid #d00000;
 
+      border-radius: 12px;
     }
-
 
     .feature h3 {
-
       color: #b00000;
-
       margin-top: 0;
+    }
 
+    .feature p {
+      font-size: 16px;
     }
 
 
-    /* Teachers Introduction */
+    /* ================= TEACHERS ================= */
 
-    .teacher-intro {
-
+    .teacher-box {
       text-align: center;
-
     }
 
-
-    .teacher-intro p {
-
+    .teacher-box p {
       max-width: 800px;
-
       margin: auto;
-
     }
 
 
-    /* Quick Links */
+    /* ================= QUICK LINKS ================= */
 
     .quick-links {
-
       text-align: center;
-
     }
 
-
     .quick-button {
-
       display: inline-block;
 
-      padding: 14px 25px;
-
       margin: 8px;
+
+      padding: 14px 25px;
 
       background: #d00000;
 
@@ -348,82 +268,61 @@
 
       font-weight: bold;
 
+      transition: 0.2s;
     }
-
 
     .quick-button:hover {
-
       background: #ff9800;
-
       color: #650000;
-
     }
 
 
-    /* Footer */
+    /* ================= FOOTER ================= */
 
     footer {
+      margin-top: 50px;
 
-      background: rgba(120, 0, 0, 0.95);
-
-      color: white;
+      padding: 35px 20px;
 
       text-align: center;
 
-      padding: 30px 20px;
+      background: rgba(115, 0, 0, 0.97);
 
-      margin-top: 50px;
-
+      color: white;
     }
 
+    footer h2 {
+      margin-top: 0;
+    }
 
     footer p {
-
       margin: 8px;
-
     }
 
 
-    /* Mobile Responsive */
+    /* ================= MOBILE ================= */
 
     @media (max-width: 800px) {
 
       .navbar {
-
         flex-direction: column;
-
-        gap: 10px;
-
+        gap: 12px;
       }
 
-
-      .nav-buttons a {
-
-        margin: 3px;
-
-        font-size: 14px;
-
+      .nav-links {
+        justify-content: center;
       }
-
 
       .hero h1 {
-
         font-size: 36px;
-
       }
-
 
       .subjects {
-
         grid-template-columns: repeat(2, 1fr);
-
       }
 
-
       .features {
-
         grid-template-columns: 1fr;
-
       }
 
     }
@@ -431,26 +330,30 @@
 
     @media (max-width: 500px) {
 
-      .subjects {
-
-        grid-template-columns: 1fr;
-
+      .hero {
+        padding: 55px 15px;
       }
 
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero h2 {
+        font-size: 21px;
+      }
+
+      .subjects {
+        grid-template-columns: 1fr;
+      }
 
       .section {
-
         margin: 15px;
-
         padding: 22px;
-
       }
 
-
-      .hero {
-
-        padding: 55px 15px;
-
+      .nav-links a {
+        font-size: 13px;
+        padding: 8px 10px;
       }
 
     }
@@ -466,7 +369,7 @@
 <div class="page">
 
 
-  <!-- Navigation -->
+  <!-- ================= NAVIGATION ================= -->
 
   <nav class="navbar">
 
@@ -474,23 +377,26 @@
       AnshKnowledgeBase
     </div>
 
+    <div class="nav-links">
 
-    <div class="nav-buttons">
-
+      <!-- HOME -->
       <a href="index.html">
         Home
       </a>
 
+      <!-- TEACHERS PAGE -->
       <a href="teachers.html">
         Our Teachers
       </a>
 
+      <!-- CONTACT PAGE -->
       <a href="contact.html">
-        Contact
+        Contact Us
       </a>
 
+      <!-- JOIN PAGE -->
       <a href="join.html">
-        Join Us
+        Join Our Tuition
       </a>
 
     </div>
@@ -499,7 +405,7 @@
 
 
 
-  <!-- Hero Section -->
+  <!-- ================= HERO ================= -->
 
   <section class="hero">
 
@@ -513,14 +419,16 @@
 
     <p>
 
-      AnshKnowledgeBase is dedicated to providing quality education,
-      building strong concepts, improving academic performance,
+      AnshKnowledgeBase is dedicated to providing
+      quality education, building strong concepts,
       and helping students learn with confidence.
 
     </p>
 
 
-    <a class="main-button" href="join.html">
+    <!-- JOIN PAGE BUTTON -->
+
+    <a class="hero-button" href="join.html">
       Join Our Tuition
     </a>
 
@@ -528,7 +436,7 @@
 
 
 
-  <!-- About -->
+  <!-- ================= ABOUT ================= -->
 
   <section class="section">
 
@@ -536,8 +444,426 @@
       About Our Tuition
     </h2>
 
+    <p>
+
+      AnshKnowledgeBase is a student-focused tuition
+      platform where we help students understand
+      difficult topics easily, build strong fundamentals,
+      and improve their academic performance.
+
+    </p>
 
     <p>
 
-      AnshKnowledgeBase is a student-focused tuition platform
-      where students can learn difficult topics in a simple and
+      Our aim is to provide a friendly learning
+      environment where students can ask questions,
+      clear their doubts, practice regularly, and
+      improve their confidence.
+
+    </p>
+
+    <p>
+
+      We believe that consistent practice,
+      clear concepts, proper guidance, and
+      personal attention can help students
+      achieve their academic goals.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- ================= SUBJECTS ================= -->
+
+  <section class="section">
+
+    <h2>
+      Our Subjects
+    </h2>
+
+    <p style="text-align:center;">
+
+      We provide learning support in various
+      academic subjects.
+
+    </p>
+
+
+    <div class="subjects">
+
+      <div class="subject">
+        Mathematics
+      </div>
+
+      <div class="subject">
+        Science
+      </div>
+
+      <div class="subject">
+        English
+      </div>
+
+      <div class="subject">
+        Hindi
+      </div>
+
+      <div class="subject">
+        Gujarati
+      </div>
+
+      <div class="subject">
+        Social Science
+      </div>
+
+      <div class="subject">
+        Computer Science
+      </div>
+
+      <div class="subject">
+        General Knowledge
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= WHY CHOOSE US ================= -->
+
+  <section class="section">
+
+    <h2>
+      Why Choose AnshKnowledgeBase?
+    </h2>
+
+
+    <div class="features">
+
+
+      <div class="feature">
+
+        <h3>
+          Clear Concept Explanation
+        </h3>
+
+        <p>
+
+          Difficult topics are explained in
+          a simple and student-friendly way.
+
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          Personal Attention
+        </h3>
+
+        <p>
+
+          We focus on the individual learning
+          needs and progress of students.
+
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          Regular Practice
+        </h3>
+
+        <p>
+
+          Regular practice helps students
+          strengthen their concepts.
+
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          Doubt Solving
+        </h3>
+
+        <p>
+
+          Students can ask questions and
+          understand difficult concepts clearly.
+
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          Friendly Learning Environment
+        </h3>
+
+        <p>
+
+          We aim to provide a comfortable
+          environment for learning.
+
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          Focus on Student Progress
+        </h3>
+
+        <p>
+
+          Our focus is continuous improvement
+          in understanding and performance.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= TEACHERS ================= -->
+
+  <section class="section teacher-box">
+
+    <h2>
+      Meet Our Teachers
+    </h2>
+
+    <p>
+
+      Our dedicated teachers help students
+      understand concepts clearly, solve doubts,
+      practice regularly, and improve their
+      academic performance.
+
+    </p>
+
+
+    <!-- THIS OPENS teachers.html -->
+
+    <a class="quick-button" href="teachers.html">
+      View Our Teachers
+    </a>
+
+  </section>
+
+
+
+  <!-- ================= LEARNING APPROACH ================= -->
+
+  <section class="section">
+
+    <h2>
+      Our Learning Approach
+    </h2>
+
+
+    <p>
+
+      <b>1. Understand:</b>
+      We focus on understanding the basic
+      concept before moving to difficult topics.
+
+    </p>
+
+
+    <p>
+
+      <b>2. Learn:</b>
+      Students learn through clear explanations
+      and examples.
+
+    </p>
+
+
+    <p>
+
+      <b>3. Practice:</b>
+      Regular practice helps strengthen
+      concepts and improve accuracy.
+
+    </p>
+
+
+    <p>
+
+      <b>4. Clear Doubts:</b>
+      Students can identify and understand
+      difficult questions and concepts.
+
+    </p>
+
+
+    <p>
+
+      <b>5. Improve:</b>
+      Consistent learning and practice help
+      students improve their confidence.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- ================= QUICK LINKS ================= -->
+
+  <section class="section quick-links">
+
+    <h2>
+      Quick Links
+    </h2>
+
+
+    <!-- TEACHERS -->
+
+    <a class="quick-button" href="teachers.html">
+      Our Teachers
+    </a>
+
+
+    <!-- CONTACT -->
+
+    <a class="quick-button" href="contact.html">
+      Contact Us
+    </a>
+
+
+    <!-- JOIN -->
+
+    <a class="quick-button" href="join.html">
+      Student Registration
+    </a>
+
+  </section>
+
+
+
+  <!-- ================= CONTACT PREVIEW ================= -->
+
+  <section class="section">
+
+    <h2>
+      Get in Touch
+    </h2>
+
+
+    <p style="text-align:center;">
+
+      For admission enquiries, class timings,
+      fees, and other information,
+      please contact us.
+
+    </p>
+
+
+    <p style="text-align:center;">
+
+      <b>Phone:</b> Your Phone Number
+
+      <br><br>
+
+      <b>Email:</b> Your Email Address
+
+      <br><br>
+
+      <b>Address:</b> Your Tuition Address
+
+    </p>
+
+
+    <div style="text-align:center;">
+
+      <!-- CONTACT PAGE -->
+
+      <a class="quick-button" href="contact.html">
+        Contact Us
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= JOIN ================= -->
+
+  <section class="section">
+
+    <h2>
+      Start Your Learning Journey
+    </h2>
+
+
+    <p style="text-align:center;">
+
+      Want to join AnshKnowledgeBase?
+      Fill out our student registration form
+      to begin your learning journey.
+
+    </p>
+
+
+    <div style="text-align:center;">
+
+      <!-- JOIN PAGE -->
+
+      <a class="hero-button" href="join.html">
+        Student Registration
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>
+      AnshKnowledgeBase
+    </h2>
+
+    <p>
+      Quality Education • Strong Concepts • Better Learning
+    </p>
+
+    <p>
+      © 2026 AnshKnowledgeBase. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
