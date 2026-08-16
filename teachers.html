@@ -1,114 +1,511 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Our Teachers - AnshKnowledgeBase</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 30px;
-      font-family: Arial, sans-serif;
+<title>Our Teachers - AnshKnowledgeBase</title>
 
-      background-image: url("background.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #171717;
+    line-height: 1.6;
+}
+
+/* TOP BAR */
+.top-bar {
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 9px 15px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(255,255,255,0.97);
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: #111111;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ff2a18, #c90000);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 7px 18px rgba(210,0,0,0.25);
+}
+
+.brand-name {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.brand-name span {
+    color: #c90000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.nav-links a:hover {
+    background: #fff0f0;
+    color: #c90000;
+}
+
+.nav-links .join-btn {
+    background: linear-gradient(135deg, #ef1717, #c40000);
+    color: white;
+    padding: 13px 23px;
+    box-shadow: 0 6px 16px rgba(200,0,0,0.22);
+}
+
+.nav-links .join-btn:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* PAGE */
+.page {
+    max-width: 1250px;
+    margin: 55px auto;
+    padding: 0 25px;
+}
+
+/* HERO */
+.page-hero {
+    background: rgba(255,255,255,0.94);
+    border-radius: 28px;
+    padding: 50px;
+    margin-bottom: 28px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.badge {
+    display: inline-block;
+    color: #b40000;
+    background: #fff0f0;
+    border: 1px solid #ffd1d1;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.page-hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.page-hero h1 span {
+    color: #c90000;
+}
+
+.page-hero p {
+    max-width: 800px;
+    color: #666;
+    font-size: 18px;
+}
+
+/* TEACHERS */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.teacher-card {
+    background: rgba(255,255,255,0.96);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.10);
+    border: 1px solid rgba(255,255,255,0.9);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.teacher-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #e00000, #ff6b4a);
+}
+
+.teacher-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+}
+
+.teacher-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.teacher-avatar {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffe2e2, #fff4f4);
+    color: #c90000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+    border: 1px solid #ffd0d0;
+}
+
+.teacher-top h2 {
+    font-size: 23px;
+    margin-bottom: 3px;
+}
+
+.teacher-top p {
+    color: #c90000;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.info {
+    border-top: 1px solid #eeeeee;
+}
+
+.info-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    gap: 10px;
+}
+
+.info-row strong {
+    min-width: 115px;
+    color: #222;
+}
+
+.info-row span {
+    color: #555;
+}
+
+.subject-box {
+    margin-top: 22px;
+    padding: 14px 17px;
+    background: #fff5f5;
+    border-radius: 12px;
+    color: #a90000;
+    font-weight: 600;
+}
+
+/* CTA */
+.cta {
+    margin-top: 30px;
+    background: linear-gradient(135deg, #b90000, #ed1717);
+    color: white;
+    border-radius: 24px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(190,0,0,0.20);
+}
+
+.cta h2 {
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.cta p {
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.cta a {
+    display: inline-block;
+    background: white;
+    color: #b90000;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    background: #111;
+    color: #ddd;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.88);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 1000px;
-      margin: auto;
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    h1 {
-      color: #c00000;
+    .nav-links a {
+        padding: 9px 12px;
+        font-size: 14px;
     }
 
-    h2 {
-      color: #c00000;
+    .page {
+        margin: 25px auto;
+        padding: 0 14px;
     }
 
-    h3 {
-      color: #d00000;
+    .page-hero {
+        padding: 30px 22px;
+        border-radius: 20px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
+    .page-hero h1 {
+        font-size: 36px;
     }
 
-    hr {
-      border: 0;
-      border-top: 2px solid #d00000;
-      margin: 25px 0;
+    .page-hero p {
+        font-size: 16px;
     }
 
-    .back-button {
-      display: inline-block;
-      background: #d00000;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 20px;
+    .teachers-grid {
+        grid-template-columns: 1fr;
     }
 
-    .back-button:hover {
-      background: #a00000;
+    .teacher-card {
+        padding: 23px;
     }
-  </style>
 
+    .brand-name {
+        font-size: 20px;
+    }
+
+    .top-bar {
+        font-size: 12px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-
-  <h1>Our Teachers</h1>
-
-  <p>
-    Meet our dedicated teachers and learn about their
-    qualifications, subjects, and teaching experience.
-  </p>
-
-  <hr>
-
-  <h2>Teacher 1 - Ansh Upadhyay</h2>
-
-  <p><b>Name:</b> Ansh Upadhyay</p>
-  <p><b>Qualification:</b> 10th</p>
-  <p><b>Subjects:</b> Science and Mathematics</p>
-  <p><b>Experience:</b> 2+ Years</p>
-
-  <hr>
-
-  <h2>Teacher 2 - Ravi Upadhyay</h2>
-
-  <p><b>Name:</b> Ravi Upadhyay</p>
-  <p><b>Qualification:</b> B.Com., M.Com.</p>
-  <p><b>Subjects:</b> Commerce</p>
-  <p><b>Experience:</b> 5+ Years</p>
-
-  <hr>
-
-  <h2>Teacher 3 - Amit Upadhyay</h2>
-
-  <p><b>Name:</b> Amit Upadhyay</p>
-  <p><b>Qualification:</b> B.A., M.A. (History), B.Ed.</p>
-  <p><b>Subjects:</b> Social Science and History</p>
-  <p><b>Experience:</b> 4+ Years</p>
-
-  <hr>
-
-  <a class="back-button" href="index.html">Back to Home</a>
-
+<div class="top-bar">
+    Admissions • Quality Learning • Strong Concepts • Better Results
 </div>
 
-</body>
+<nav class="navbar">
 
+    <a href="index.html" class="brand">
+        <div class="logo">A</div>
+        <div class="brand-name">
+            Ansh<span>KnowledgeBase</span>
+        </div>
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html" class="join-btn">Join Now</a>
+    </div>
+
+</nav>
+
+<main class="page">
+
+    <section class="page-hero">
+        <div class="badge">OUR FACULTY</div>
+
+        <h1>
+            Learn From <span>Dedicated Teachers.</span>
+        </h1>
+
+        <p>
+            Meet our dedicated teachers and learn about their
+            qualifications, subjects and teaching experience.
+            Our focus is on strong concepts, regular practice
+            and better academic performance.
+        </p>
+    </section>
+
+
+    <section class="teachers-grid">
+
+        <!-- TEACHER 1 -->
+        <div class="teacher-card">
+
+            <div class="teacher-top">
+
+                <div class="teacher-avatar">
+                    AU
+                </div>
+
+                <div>
+                    <h2>Ansh Upadhyay</h2>
+                    <p>Science & Mathematics</p>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="info-row">
+                    <strong>Name</strong>
+                    <span>Ansh Upadhyay</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Qualification</strong>
+                    <span>10th</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Subjects</strong>
+                    <span>Science and Mathematics</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Experience</strong>
+                    <span>2+ Years</span>
+                </div>
+
+            </div>
+
+            <div class="subject-box">
+                ✓ Concept Building & Regular Practice
+            </div>
+
+        </div>
+
+
+        <!-- TEACHER 2 -->
+        <div class="teacher-card">
+
+            <div class="teacher-top">
+
+                <div class="teacher-avatar">
+                    RU
+                </div>
+
+                <div>
+                    <h2>Ravi Upadhyay</h2>
+                    <p>Commerce Faculty</p>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="info-row">
+                    <strong>Name</strong>
+                    <span>Ravi Upadhyay</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Qualification</strong>
+                    <span>B.Com., M.Com.</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Subjects</strong>
+                    <span>Commerce</span>
+                </div>
+
+            </div>
+
+            <div class="subject-box">
+                ✓ Commerce & Concept-Based Learning
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cta">
+
+        <h2>Want to Join AnshKnowledgeBase?</h2>
+
+        <p>
+            Start your learning journey with focused teaching,
+            regular practice and strong concepts.
+        </p>
+
+        <a href="join.html">
+            Apply for Admission →
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 AnshKnowledgeBase. All Rights Reserved.
+</footer>
+
+</body>
 </html>
