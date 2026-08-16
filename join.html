@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Student Registration - AnshKnowledgeBase</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+
+      background-image: url("background.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #c00000;
+      text-align: center;
+    }
+
+    h2 {
+      color: #d00000;
+    }
+
+    .note {
+      background: #fff3cd;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #999;
+      border-radius: 7px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .gender {
+      width: auto;
+      margin-right: 5px;
+    }
+
+    .submit-button {
+      margin-top: 25px;
+      background: #d00000;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #a00000;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      background: #555;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <h1>Student Registration Form</h1>
+
+  <p class="note">
+    Please fill in the student's details carefully.
+  </p>
+
+
+  <h2>Student Details</h2>
+
+
+  <form>
+
+    <label>Student Full Name</label>
+
+    <input
+      type="text"
+      name="student_name"
+      placeholder="Enter student's full name"
+      required
+    >
+
+
+    <label>Date of Birth</label>
+
+    <input
+      type="date"
+      name="date_of_birth"
+      required
+    >
+
+
+    <label>Gender</label>
+
+    <input
+      class="gender"
+      type="radio"
+      name="gender"
+      value="Male"
+    > Male
+
+    <input
+      class="gender"
+      type="radio"
+      name="gender"
+      value="Female"
+    > Female
+
+    <input
+      class="gender"
+      type="radio"
+      name="gender"
+      value="Other"
+    > Other
+
+
+    <label>Class</label>
+
+    <select name="class" required>
+
+      <option value="">Select Class</option>
+
+      <option>Class 5</option>
+      <option>Class 6</option>
+      <option>Class 7</option>
+      <option>Class 8</option>
+      <option>Class 9</option>
+      <option>Class 10</option>
+      <option>Class 11</option>
+      <option>Class 12</option>
+
+    </select>
+
+
+    <label>School Name</label>
+
+    <input
+      type="text"
+      name="school"
+      placeholder="Enter school name"
+      required
+    >
+
+
+    <label>Subjects Required</label>
+
+    <select name="subject" required>
+
+      <option value="">Select Main Subject</option>
+
+      <option>Mathematics</option>
+      <option>Science</option>
+      <option>English</option>
+      <option>Hindi</option>
+      <option>Gujarati</option>
+      <option>Social Science</option>
+      <option>Computer Science</option>
+      <option>General Knowledge</option>
+      <option>All Subjects</option>
+
+    </select>
+
+
+    <h2>Parent / Guardian Details</h2>
+
+
+    <label>Father's Name</label>
+
+    <input
+      type="text"
+      name="father_name"
+      placeholder="Enter father's name"
+      required
+   
