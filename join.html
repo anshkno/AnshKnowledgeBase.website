@@ -1,220 +1,1298 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Student Registration - AnshKnowledgeBase</title>
+<title>Student Registration - AnshKnowledgeBase</title>
 
-  <style>
+<!-- PDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    body {
-      margin: 0;
-      padding: 30px;
-      font-family: Arial, sans-serif;
+<style>
 
-      background-image: url("background.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+
+    background-image:url("background.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#222;
+}
+
+/* Top Header */
+
+header{
+    background:#b40000;
+    color:white;
+    padding:18px 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* Main Container */
+
+.container{
+    width:92%;
+    max-width:950px;
+
+    margin:35px auto;
+
+    background:rgba(255,255,255,0.94);
+
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.20);
+}
+
+/* Heading */
+
+.main-title{
+    text-align:center;
+    color:#b00000;
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#d27a00;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+/* Sections */
+
+.section{
+    margin-top:28px;
+    padding:22px;
+
+    border-left:6px solid #c40000;
+
+    background:#fff8e8;
+
+    border-radius:12px;
+}
+
+.section h2{
+    color:#b00000;
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+/* Form */
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:16px;
+    margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #aaa;
+    border-radius:8px;
+
+    font-size:16px;
+
+    background:white;
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.radio-group{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.radio-group label{
+    font-weight:normal;
+    margin:0;
+}
+
+.radio-group input{
+    width:auto;
+}
+
+/* Photo */
+
+.photo-box{
+    text-align:center;
+    padding:20px;
+
+    background:white;
+
+    border:2px dashed #c40000;
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+.photo-preview{
+    width:130px;
+    height:150px;
+
+    object-fit:cover;
+
+    border:3px solid #b00000;
+    border-radius:8px;
+
+    margin-top:15px;
+
+    display:none;
+}
+
+/* Buttons */
+
+.register-btn{
+    width:100%;
+
+    margin-top:30px;
+
+    padding:16px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#c40000;
+    color:white;
+
+    font-size:19px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.register-btn:hover{
+    background:#920000;
+}
+
+.download-btn{
+    display:none;
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#008000;
+    color:white;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.home-btn,
+.contact-btn{
+    display:inline-block;
+
+    margin-top:15px;
+    margin-right:8px;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.home-btn{
+    background:#b40000;
+    color:white;
+}
+
+.contact-btn{
+    background:#d89000;
+    color:white;
+}
+
+/* Success */
+
+.success{
+    display:none;
+
+    margin-top:25px;
+
+    padding:20px;
+
+    background:#e8ffe8;
+
+    border:2px solid green;
+
+    border-radius:10px;
+
+    color:#006600;
+
+    text-align:center;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+
+    background:#b40000;
+    color:white;
+
+    padding:25px;
+
+    margin-top:40px;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.92);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 750px;
-      margin: auto;
+    nav a{
+        margin:0 7px;
+        font-size:14px;
     }
 
-    h1 {
-      color: #c00000;
-      text-align: center;
+    .container{
+        width:95%;
+        padding:20px;
     }
 
-    h2 {
-      color: #d00000;
+    .main-title{
+        font-size:28px;
     }
 
-    .note {
-      background: #fff3cd;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-    }
+}
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 15px;
-      margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #999;
-      border-radius: 7px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    textarea {
-      height: 100px;
-      resize: vertical;
-    }
-
-    .gender {
-      width: auto;
-      margin-right: 5px;
-    }
-
-    .submit-button {
-      margin-top: 25px;
-      background: #d00000;
-      color: white;
-      border: none;
-      padding: 14px 25px;
-      border-radius: 8px;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .submit-button:hover {
-      background: #a00000;
-    }
-
-    .back-button {
-      display: inline-block;
-      margin-top: 20px;
-      background: #555;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
-  </style>
-
+</style>
 </head>
 
 
 <body>
 
-<div class="container">
 
-  <h1>Student Registration Form</h1>
+<!-- HEADER -->
 
-  <p class="note">
-    Please fill in the student's details carefully.
-  </p>
+<header>
 
+<div class="logo">
+AnshKnowledgeBase
+</div>
 
-  <h2>Student Details</h2>
+<nav>
 
+<a href="index.html">Home</a>
 
-  <form>
+<a href="teachers.html">Our Teachers</a>
 
-    <label>Student Full Name</label>
+<a href="contact.html">Contact</a>
 
-    <input
-      type="text"
-      name="student_name"
-      placeholder="Enter student's full name"
-      required
-    >
+<a href="join.html">Join Us</a>
 
+</nav>
 
-    <label>Date of Birth</label>
-
-    <input
-      type="date"
-      name="date_of_birth"
-      required
-    >
+</header>
 
 
-    <label>Gender</label>
 
-    <input
-      class="gender"
-      type="radio"
-      name="gender"
-      value="Male"
-    > Male
+<!-- FORM -->
 
-    <input
-      class="gender"
-      type="radio"
-      name="gender"
-      value="Female"
-    > Female
+<div class="container" id="registrationPage">
 
-    <input
-      class="gender"
-      type="radio"
-      name="gender"
-      value="Other"
-    > Other
+<h1 class="main-title">
+Student Registration
+</h1>
+
+<p class="subtitle">
+Join AnshKnowledgeBase and begin your learning journey
+</p>
 
 
-    <label>Class</label>
-
-    <select name="class" required>
-
-      <option value="">Select Class</option>
-
-      <option>Class 5</option>
-      <option>Class 6</option>
-      <option>Class 7</option>
-      <option>Class 8</option>
-      <option>Class 9</option>
-      <option>Class 10</option>
-      <option>Class 11</option>
-      <option>Class 12</option>
-
-    </select>
+<form id="studentForm">
 
 
-    <label>School Name</label>
+<!-- STUDENT PHOTO -->
 
-    <input
-      type="text"
-      name="school"
-      placeholder="Enter school name"
-      required
-    >
+<div class="section">
 
+<h2>Student Photo</h2>
 
-    <label>Subjects Required</label>
+<div class="photo-box">
 
-    <select name="subject" required>
+<label for="studentPhoto">
+Upload Student Photo
+</label>
 
-      <option value="">Select Main Subject</option>
+<input
+type="file"
+id="studentPhoto"
+accept="image/*"
+required
+>
 
-      <option>Mathematics</option>
-      <option>Science</option>
-      <option>English</option>
-      <option>Hindi</option>
-      <option>Gujarati</option>
-      <option>Social Science</option>
-      <option>Computer Science</option>
-      <option>General Knowledge</option>
-      <option>All Subjects</option>
+<img
+id="photoPreview"
+class="photo-preview"
+alt="Student Photo"
+>
 
-    </select>
+</div>
 
-
-    <h2>Parent / Guardian Details</h2>
+</div>
 
 
-    <label>Father's Name</label>
 
-    <input
-      type="text"
-      name="father_name"
-      placeholder="Enter father's name"
-      required
-   
+<!-- STUDENT DETAILS -->
+
+<div class="section">
+
+<h2>Student Details</h2>
+
+
+<label>
+Student Full Name
+</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter student's full name"
+required
+>
+
+
+<label>
+Date of Birth
+</label>
+
+<input
+type="date"
+id="dob"
+required
+>
+
+
+<label>
+Gender
+</label>
+
+<div class="radio-group">
+
+<label>
+<input type="radio" name="gender" value="Male" required>
+Male
+</label>
+
+<label>
+<input type="radio" name="gender" value="Female">
+Female
+</label>
+
+<label>
+<input type="radio" name="gender" value="Other">
+Other
+</label>
+
+</div>
+
+
+<label>
+Class
+</label>
+
+<select id="studentClass" required>
+
+<option value="">Select Class</option>
+
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+<option>Class 9</option>
+<option>Class 10</option>
+<option>Class 11</option>
+<option>Class 12</option>
+
+</select>
+
+
+<label>
+School Name
+</label>
+
+<input
+type="text"
+id="school"
+placeholder="Enter school name"
+required
+>
+
+
+<label>
+Subjects Required
+</label>
+
+<select id="subjects" required>
+
+<option value="">Select Subjects</option>
+
+<option>All Subjects</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>English</option>
+<option>Hindi</option>
+<option>Gujarati</option>
+<option>Social Science</option>
+<option>Computer Science</option>
+<option>General Knowledge</option>
+
+</select>
+
+</div>
+
+
+
+<!-- PARENT DETAILS -->
+
+<div class="section">
+
+<h2>Parent / Guardian Details</h2>
+
+
+<label>
+Father's Name
+</label>
+
+<input
+type="text"
+id="fatherName"
+placeholder="Enter father's name"
+required
+>
+
+
+<label>
+Mother's Name
+</label>
+
+<input
+type="text"
+id="motherName"
+placeholder="Enter mother's name"
+required
+>
+
+
+<label>
+Parent / Guardian Mobile Number
+</label>
+
+<input
+type="tel"
+id="parentPhone"
+placeholder="Enter mobile number"
+required
+>
+
+
+<label>
+Parent / Guardian Email
+</label>
+
+<input
+type="email"
+id="parentEmail"
+placeholder="Enter email address"
+>
+
+
+<label>
+Occupation
+</label>
+
+<input
+type="text"
+id="occupation"
+placeholder="Enter parent occupation"
+>
+
+</div>
+
+
+
+<!-- ADDRESS -->
+
+<div class="section">
+
+<h2>Address Details</h2>
+
+
+<label>
+Full Address
+</label>
+
+<textarea
+id="address"
+placeholder="Enter complete residential address"
+required
+></textarea>
+
+
+<label>
+City
+</label>
+
+<input
+type="text"
+id="city"
+placeholder="Enter city"
+required
+>
+
+
+<label>
+State
+</label>
+
+<input
+type="text"
+id="state"
+placeholder="Enter state"
+required
+>
+
+
+<label>
+PIN Code
+</label>
+
+<input
+type="text"
+id="pincode"
+placeholder="Enter PIN code"
+required
+>
+
+</div>
+
+
+
+<!-- ACADEMIC DETAILS -->
+
+<div class="section">
+
+<h2>Academic Information</h2>
+
+
+<label>
+Previous School / Class Percentage
+</label>
+
+<input
+type="text"
+id="percentage"
+placeholder="Example: 78%"
+>
+
+
+<label>
+Previous Academic Performance
+</label>
+
+<select id="performance">
+
+<option value="">
+Select
+</option>
+
+<option>Excellent</option>
+<option>Very Good</option>
+<option>Good</option>
+<option>Needs Improvement</option>
+
+</select>
+
+
+<label>
+Student's Learning Goal
+</label>
+
+<textarea
+id="goal"
+placeholder="Tell us what the student wants to improve..."
+></textarea>
+
+</div>
+
+
+
+<!-- ADDITIONAL -->
+
+<div class="section">
+
+<h2>Additional Information</h2>
+
+
+<label>
+Any Special Requirement / Note
+</label>
+
+<textarea
+id="notes"
+placeholder="Enter any additional information..."
+></textarea>
+
+
+<label>
+Preferred Class Timing
+</label>
+
+<select id="timing">
+
+<option value="">
+Select preferred timing
+</option>
+
+<option>Morning</option>
+<option>Afternoon</option>
+<option>Evening</option>
+
+</select>
+
+</div>
+
+
+
+<!-- REGISTER BUTTON -->
+
+<button
+type="submit"
+class="register-btn"
+>
+
+Register & Download PDF
+
+</button>
+
+
+</form>
+
+
+
+<!-- SUCCESS -->
+
+<div
+class="success"
+id="successMessage"
+>
+
+<h2>Registration Completed Successfully!</h2>
+
+<p>
+Your registration details have been prepared successfully.
+</p>
+
+<p>
+Your Student Registration PDF has been downloaded.
+</p>
+
+
+<button
+class="download-btn"
+id="downloadAgain"
+>
+
+Download PDF Again
+
+</button>
+
+
+<br>
+
+
+<a
+href="index.html"
+class="home-btn"
+>
+Home
+</a>
+
+
+<a
+href="contact.html"
+class="contact-btn"
+>
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<b>AnshKnowledgeBase</b>
+
+<br><br>
+
+Quality Tuition & Learning
+
+<br><br>
+
+Address: YOUR TUITION ADDRESS
+
+<br>
+
+Phone: YOUR PHONE NUMBER
+
+<br>
+
+Email: YOUR EMAIL ADDRESS
+
+<br><br>
+
+© 2026 AnshKnowledgeBase. All Rights Reserved.
+
+</footer>
+
+
+
+<script>
+
+let generatedPDF = null;
+
+
+/* PHOTO PREVIEW */
+
+document
+.getElementById("studentPhoto")
+.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            const img =
+            document.getElementById("photoPreview");
+
+            img.src = e.target.result;
+
+            img.style.display = "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+
+
+/* GET RADIO VALUE */
+
+function getGender(){
+
+    const selected =
+    document.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    return selected
+    ? selected.value
+    : "";
+
+}
+
+
+
+/* CREATE PDF */
+
+document
+.getElementById("studentForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    const photoFile =
+    document.getElementById("studentPhoto").files[0];
+
+
+    if(!photoFile){
+
+        alert("Please upload student photo.");
+
+        return;
+
+    }
+
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(e){
+
+        const photo =
+        e.target.result;
+
+
+        const studentName =
+        document.getElementById("studentName").value;
+
+        const dob =
+        document.getElementById("dob").value;
+
+        const gender =
+        getGender();
+
+        const studentClass =
+        document.getElementById("studentClass").value;
+
+        const school =
+        document.getElementById("school").value;
+
+        const subjects =
+        document.getElementById("subjects").value;
+
+        const fatherName =
+        document.getElementById("fatherName").value;
+
+        const motherName =
+        document.getElementById("motherName").value;
+
+        const parentPhone =
+        document.getElementById("parentPhone").value;
+
+        const parentEmail =
+        document.getElementById("parentEmail").value;
+
+        const occupation =
+        document.getElementById("occupation").value;
+
+        const address =
+        document.getElementById("address").value;
+
+        const city =
+        document.getElementById("city").value;
+
+        const state =
+        document.getElementById("state").value;
+
+        const pincode =
+        document.getElementById("pincode").value;
+
+        const percentage =
+        document.getElementById("percentage").value;
+
+        const performance =
+        document.getElementById("performance").value;
+
+        const goal =
+        document.getElementById("goal").value;
+
+        const notes =
+        document.getElementById("notes").value;
+
+        const timing =
+        document.getElementById("timing").value;
+
+
+
+        /* PDF HTML */
+
+        const pdfContent =
+        document.createElement("div");
+
+
+        pdfContent.style.width = "800px";
+
+        pdfContent.style.background = "white";
+
+        pdfContent.style.padding = "35px";
+
+        pdfContent.style.fontFamily =
+        "Arial, sans-serif";
+
+        pdfContent.style.color = "#222";
+
+
+        pdfContent.innerHTML = `
+
+        <div style="
+            border:5px solid #b40000;
+            padding:25px;
+            background:#fffdf5;
+        ">
+
+            <div style="
+                text-align:center;
+                border-bottom:3px solid #b40000;
+                padding-bottom:15px;
+            ">
+
+                <h1 style="
+                    margin:0;
+                    color:#b40000;
+                    font-size:32px;
+                ">
+                    AnshKnowledgeBase
+                </h1>
+
+                <p style="
+                    margin:8px 0;
+                    color:#d08000;
+                    font-size:17px;
+                    font-weight:bold;
+                ">
+                    Quality Tuition & Learning
+                </p>
+
+                <p style="
+                    margin:5px;
+                    font-size:13px;
+                ">
+                    Student Registration Form
+                </p>
+
+            </div>
+
+
+            <div style="
+                text-align:center;
+                margin-top:20px;
+            ">
+
+                <img
+                    src="${photo}"
+                    style="
+                        width:130px;
+                        height:150px;
+                        object-fit:cover;
+                        border:4px solid #b40000;
+                        border-radius:8px;
+                    "
+                >
+
+            </div>
+
+
+            <h2 style="
+                color:#b40000;
+                border-bottom:2px solid #b40000;
+                padding-bottom:6px;
+                margin-top:25px;
+            ">
+                Student Details
+            </h2>
+
+
+            <table style="
+                width:100%;
+                border-collapse:collapse;
+                font-size:14px;
+            ">
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Student Name</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${studentName}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Date of Birth</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${dob}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Gender</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${gender}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Class</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${studentClass}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>School</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${school}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Subjects Required</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${subjects}
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+            <h2 style="
+                color:#b40000;
+                border-bottom:2px solid #b40000;
+                padding-bottom:6px;
+                margin-top:25px;
+            ">
+                Parent / Guardian Details
+            </h2>
+
+
+            <table style="
+                width:100%;
+                border-collapse:collapse;
+                font-size:14px;
+            ">
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Father's Name</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${fatherName}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Mother's Name</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${motherName}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Mobile Number</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${parentPhone}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Email</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${parentEmail}
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        <b>Occupation</b>
+                    </td>
+
+                    <td style="padding:8px;border:1px solid #ccc;">
+                        ${occupation}
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+            <h2 style="
+                color:#b40000;
+                border-bottom:2px solid #b40000;
+                padding-bottom:6px;
+                margin-top:25px;
+            ">
+                Address Details
+            </h2>
+
+
+            <p>
+                <b>Address:</b>
+                ${address}
+            </p>
+
+            <p>
+                <b>City:</b>
+                ${city}
+            </p>
+
+            <p>
+                <b>State:</b>
+                ${state}
+            </p>
+
+            <p>
+                <b>PIN Code:</b>
+                ${pincode}
+            </p>
+
+
+
+            <h2 style="
+                color:#b40000;
+                border-bottom:2px solid #b40000;
+                padding-bottom:6px;
+                margin-top:25px;
+            ">
+                Academic Information
+            </h2>
+
+
+            <p>
+                <b>Previous Percentage:</b>
+                ${percentage}
+            </p>
+
+            <p>
+                <b>Academic Performance:</b>
+                ${performance}
+            </p>
+
+            <p>
+                <b>Learning Goal:</b>
+                ${goal}
+            </p>
+
+            <p>
+                <b>Preferred Timing:</b>
+                ${timing}
+            </p>
+
+            <p>
+                <b>Additional Notes:</b>
+                ${notes}
+            </p>
+
+
+
+            <div style="
+                margin-top:35px;
+                padding:18px;
+                background:#fff0d0;
+                border-left:6px solid #b40000;
+            ">
+
+                <h2 style="
+                    margin-top:0;
+                    color:#b40000;
+                ">
+                    Contact AnshKnowledgeBase
+                </h2>
+
+                <p>
+                    <b>Address:</b>
+                    YOUR TUITION ADDRESS
+                </p>
+
+                <p>
+                    <b>Phone:</b>
+                    YOUR PHONE NUMBER
+                </p>
+
+                <p>
+                    <b>Email:</b>
+                    YOUR EMAIL ADDRESS
+                </p>
+
+            </div>
+
+
+
+            <div style="
+               
