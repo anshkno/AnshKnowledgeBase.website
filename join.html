@@ -7,8 +7,9 @@
 
 <title>Student Registration - AnshKnowledgeBase</title>
 
-<!-- PDF Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!-- PDF Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
 
@@ -18,7 +19,7 @@
 
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial, sans-serif;
 
     background-image:url("background.png");
     background-size:cover;
@@ -28,96 +29,56 @@ body{
     color:#222;
 }
 
-/* Top Header */
-
-header{
-    background:#b40000;
+.header{
+    background:#c40000;
     color:white;
-    padding:18px 25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    position:sticky;
-    top:0;
-    z-index:10;
+    padding:20px;
+    text-align:center;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
+.header h1{
+    margin:0;
+    font-size:30px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:22px;
-    font-weight:bold;
+.header p{
+    margin:7px 0 0;
 }
-
-nav a:hover{
-    text-decoration:underline;
-}
-
-/* Main Container */
 
 .container{
-    width:92%;
-    max-width:950px;
-
-    margin:35px auto;
-
-    background:rgba(255,255,255,0.94);
-
-    padding:35px;
-
-    border-radius:22px;
-
-    box-shadow:0 8px 30px rgba(0,0,0,0.20);
+    max-width:900px;
+    margin:30px auto;
+    background:rgba(255,255,255,0.96);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.25);
 }
 
-/* Heading */
-
-.main-title{
+.logo-area{
     text-align:center;
-    color:#b00000;
-    font-size:36px;
-    margin-bottom:8px;
-}
-
-.subtitle{
-    text-align:center;
-    color:#d27a00;
-    font-size:18px;
-    margin-bottom:30px;
-}
-
-/* Sections */
-
-.section{
-    margin-top:28px;
-    padding:22px;
-
-    border-left:6px solid #c40000;
-
-    background:#fff8e8;
-
-    border-radius:12px;
-}
-
-.section h2{
-    color:#b00000;
-    margin-top:0;
     margin-bottom:20px;
 }
 
-/* Form */
+.logo-area h2{
+    color:#c40000;
+    margin-bottom:5px;
+}
+
+.logo-area p{
+    color:#777;
+}
+
+.section-title{
+    color:#b00000;
+    border-bottom:3px solid #e00000;
+    padding-bottom:8px;
+    margin-top:30px;
+}
 
 label{
     display:block;
     font-weight:bold;
-    margin-top:16px;
+    margin-top:18px;
     margin-bottom:7px;
 }
 
@@ -125,15 +86,10 @@ input,
 select,
 textarea{
     width:100%;
-
     padding:13px;
-
     border:1px solid #aaa;
     border-radius:8px;
-
     font-size:16px;
-
-    background:white;
 }
 
 textarea{
@@ -144,8 +100,7 @@ textarea{
 .radio-group{
     display:flex;
     gap:20px;
-    flex-wrap:wrap;
-    margin-top:10px;
+    margin-top:8px;
 }
 
 .radio-group label{
@@ -157,250 +112,170 @@ textarea{
     width:auto;
 }
 
-/* Photo */
-
 .photo-box{
     text-align:center;
-    padding:20px;
-
-    background:white;
-
-    border:2px dashed #c40000;
-    border-radius:12px;
-
-    margin-bottom:20px;
+    margin:20px 0;
 }
 
 .photo-preview{
     width:130px;
-    height:150px;
-
+    height:160px;
+    border:2px dashed #c40000;
+    border-radius:10px;
     object-fit:cover;
-
-    border:3px solid #b00000;
-    border-radius:8px;
-
-    margin-top:15px;
-
-    display:none;
+    display:block;
+    margin:15px auto;
 }
 
-/* Buttons */
+.button-area{
+    text-align:center;
+    margin-top:35px;
+}
 
-.register-btn{
-    width:100%;
-
-    margin-top:30px;
-
-    padding:16px;
-
+button{
     border:none;
-    border-radius:10px;
-
-    background:#c40000;
+    background:#d00000;
     color:white;
-
-    font-size:19px;
+    padding:15px 30px;
+    border-radius:8px;
+    font-size:17px;
     font-weight:bold;
-
     cursor:pointer;
 }
 
-.register-btn:hover{
-    background:#920000;
+button:hover{
+    background:#a00000;
 }
 
-.download-btn{
+#successMessage{
     display:none;
-
-    width:100%;
-
-    margin-top:15px;
-
-    padding:15px;
-
-    border:none;
-    border-radius:10px;
-
-    background:#008000;
-    color:white;
-
-    font-size:18px;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-.home-btn,
-.contact-btn{
-    display:inline-block;
-
-    margin-top:15px;
-    margin-right:8px;
-
-    padding:12px 22px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-}
-
-.home-btn{
-    background:#b40000;
-    color:white;
-}
-
-.contact-btn{
-    background:#d89000;
-    color:white;
-}
-
-/* Success */
-
-.success{
-    display:none;
-
-    margin-top:25px;
-
-    padding:20px;
-
     background:#e8ffe8;
-
-    border:2px solid green;
-
-    border-radius:10px;
-
-    color:#006600;
-
+    color:#087508;
+    padding:15px;
+    border-radius:8px;
     text-align:center;
+    margin-top:20px;
+    font-weight:bold;
 }
 
-/* Footer */
+/* PDF DESIGN */
 
-footer{
-    text-align:center;
+#pdfContent{
+    position:absolute;
+    left:-10000px;
+    top:0;
 
-    background:#b40000;
-    color:white;
+    width:794px;
+    min-height:1123px;
 
-    padding:25px;
+    background:white;
+    padding:35px;
 
-    margin-top:40px;
+    color:#222;
 }
 
-@media(max-width:700px){
+.pdf-header{
+    text-align:center;
+    border-bottom:4px solid #c40000;
+    padding-bottom:15px;
+}
 
-    header{
-        flex-direction:column;
-        gap:12px;
-    }
+.pdf-header h1{
+    color:#c40000;
+    margin:0;
+    font-size:30px;
+}
 
-    nav a{
-        margin:0 7px;
-        font-size:14px;
-    }
+.pdf-header p{
+    margin:5px;
+}
+
+.pdf-photo{
+    width:120px;
+    height:150px;
+    object-fit:cover;
+    border:2px solid #c40000;
+    float:right;
+    margin-left:20px;
+}
+
+.pdf-section{
+    margin-top:25px;
+}
+
+.pdf-section h2{
+    color:#c40000;
+    border-bottom:2px solid #e00000;
+    padding-bottom:5px;
+}
+
+.pdf-row{
+    margin:9px 0;
+    font-size:15px;
+}
+
+.pdf-footer{
+    margin-top:35px;
+    border-top:2px solid #ddd;
+    padding-top:15px;
+    text-align:center;
+    color:#555;
+}
+
+@media(max-width:600px){
 
     .container{
-        width:95%;
+        margin:15px;
         padding:20px;
     }
 
-    .main-title{
-        font-size:28px;
+    .header h1{
+        font-size:24px;
+    }
+
+    .radio-group{
+        flex-direction:column;
+        gap:8px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<div class="header">
 
-<header>
+    <h1>AnshKnowledgeBase</h1>
 
-<div class="logo">
-AnshKnowledgeBase
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="teachers.html">Our Teachers</a>
-
-<a href="contact.html">Contact</a>
-
-<a href="join.html">Join Us</a>
-
-</nav>
-
-</header>
-
-
-
-<!-- FORM -->
-
-<div class="container" id="registrationPage">
-
-<h1 class="main-title">
-Student Registration
-</h1>
-
-<p class="subtitle">
-Join AnshKnowledgeBase and begin your learning journey
-</p>
-
-
-<form id="studentForm">
-
-
-<!-- STUDENT PHOTO -->
-
-<div class="section">
-
-<h2>Student Photo</h2>
-
-<div class="photo-box">
-
-<label for="studentPhoto">
-Upload Student Photo
-</label>
-
-<input
-type="file"
-id="studentPhoto"
-accept="image/*"
-required
->
-
-<img
-id="photoPreview"
-class="photo-preview"
-alt="Student Photo"
->
-
-</div>
+    <p>Quality Tuition & Learning</p>
 
 </div>
 
 
-
-<!-- STUDENT DETAILS -->
-
-<div class="section">
-
-<h2>Student Details</h2>
+<div class="container">
 
 
-<label>
-Student Full Name
-</label>
+<div class="logo-area">
+
+    <h2>Student Registration</h2>
+
+    <p>Please fill in all the required details carefully.</p>
+
+</div>
+
+
+<form id="registrationForm">
+
+
+<h2 class="section-title">Student Details</h2>
+
+
+<label>Student Full Name</label>
 
 <input
 type="text"
@@ -410,9 +285,7 @@ required
 >
 
 
-<label>
-Date of Birth
-</label>
+<label>Date of Birth</label>
 
 <input
 type="date"
@@ -421,9 +294,7 @@ required
 >
 
 
-<label>
-Gender
-</label>
+<label>Gender</label>
 
 <div class="radio-group">
 
@@ -445,9 +316,7 @@ Other
 </div>
 
 
-<label>
-Class
-</label>
+<label>Class</label>
 
 <select id="studentClass" required>
 
@@ -464,9 +333,7 @@ Class
 </select>
 
 
-<label>
-School Name
-</label>
+<label>School Name</label>
 
 <input
 type="text"
@@ -476,9 +343,7 @@ required
 >
 
 
-<label>
-Subjects Required
-</label>
+<label>Subjects Required</label>
 
 <select id="subjects" required>
 
@@ -492,24 +357,38 @@ Subjects Required
 <option>Gujarati</option>
 <option>Social Science</option>
 <option>Computer Science</option>
-<option>General Knowledge</option>
+<option>Commerce</option>
 
 </select>
+
+
+<div class="photo-box">
+
+<h2 class="section-title">Student Photo</h2>
+
+<label>Upload Student Photo</label>
+
+<input
+type="file"
+id="studentPhoto"
+accept="image/*"
+required
+>
+
+<img
+id="photoPreview"
+class="photo-preview"
+src=""
+alt="Photo Preview"
+>
 
 </div>
 
 
-
-<!-- PARENT DETAILS -->
-
-<div class="section">
-
-<h2>Parent / Guardian Details</h2>
+<h2 class="section-title">Parent / Guardian Details</h2>
 
 
-<label>
-Father's Name
-</label>
+<label>Father's Name</label>
 
 <input
 type="text"
@@ -519,21 +398,16 @@ required
 >
 
 
-<label>
-Mother's Name
-</label>
+<label>Mother's Name</label>
 
 <input
 type="text"
 id="motherName"
 placeholder="Enter mother's name"
-required
 >
 
 
-<label>
-Parent / Guardian Mobile Number
-</label>
+<label>Parent / Guardian Mobile Number</label>
 
 <input
 type="tel"
@@ -543,756 +417,533 @@ required
 >
 
 
-<label>
-Parent / Guardian Email
-</label>
+<label>Email Address</label>
 
 <input
 type="email"
-id="parentEmail"
+id="email"
 placeholder="Enter email address"
 >
 
 
-<label>
-Occupation
-</label>
-
-<input
-type="text"
-id="occupation"
-placeholder="Enter parent occupation"
->
-
-</div>
+<h2 class="section-title">Address Details</h2>
 
 
-
-<!-- ADDRESS -->
-
-<div class="section">
-
-<h2>Address Details</h2>
-
-
-<label>
-Full Address
-</label>
+<label>Full Address</label>
 
 <textarea
 id="address"
-placeholder="Enter complete residential address"
+placeholder="Enter complete address"
 required
 ></textarea>
 
 
-<label>
-City
-</label>
+<label>City</label>
 
 <input
 type="text"
 id="city"
 placeholder="Enter city"
-required
 >
 
 
-<label>
-State
-</label>
+<label>State</label>
 
 <input
 type="text"
 id="state"
 placeholder="Enter state"
-required
 >
 
 
-<label>
-PIN Code
-</label>
+<label>PIN Code</label>
 
 <input
 type="text"
 id="pincode"
 placeholder="Enter PIN code"
-required
->
-
-</div>
-
-
-
-<!-- ACADEMIC DETAILS -->
-
-<div class="section">
-
-<h2>Academic Information</h2>
-
-
-<label>
-Previous School / Class Percentage
-</label>
-
-<input
-type="text"
-id="percentage"
-placeholder="Example: 78%"
 >
 
 
-<label>
-Previous Academic Performance
-</label>
-
-<select id="performance">
-
-<option value="">
-Select
-</option>
-
-<option>Excellent</option>
-<option>Very Good</option>
-<option>Good</option>
-<option>Needs Improvement</option>
-
-</select>
+<h2 class="section-title">Additional Information</h2>
 
 
-<label>
-Student's Learning Goal
-</label>
+<label>Previous Academic Performance</label>
 
 <textarea
-id="goal"
-placeholder="Tell us what the student wants to improve..."
-></textarea>
-
-</div>
-
-
-
-<!-- ADDITIONAL -->
-
-<div class="section">
-
-<h2>Additional Information</h2>
-
-
-<label>
-Any Special Requirement / Note
-</label>
-
-<textarea
-id="notes"
-placeholder="Enter any additional information..."
+id="performance"
+placeholder="Enter previous academic details"
 ></textarea>
 
 
-<label>
-Preferred Class Timing
-</label>
+<label>Any Other Information</label>
 
-<select id="timing">
-
-<option value="">
-Select preferred timing
-</option>
-
-<option>Morning</option>
-<option>Afternoon</option>
-<option>Evening</option>
-
-</select>
-
-</div>
+<textarea
+id="other"
+placeholder="Enter any additional information"
+></textarea>
 
 
+<div class="button-area">
 
-<!-- REGISTER BUTTON -->
-
-<button
-type="submit"
-class="register-btn"
->
+<button type="submit">
 
 Register & Download PDF
 
 </button>
 
+</div>
+
 
 </form>
 
 
+<div id="successMessage">
 
-<!-- SUCCESS -->
-
-<div
-class="success"
-id="successMessage"
->
-
-<h2>Registration Completed Successfully!</h2>
-
-<p>
-Your registration details have been prepared successfully.
-</p>
-
-<p>
-Your Student Registration PDF has been downloaded.
-</p>
-
-
-<button
-class="download-btn"
-id="downloadAgain"
->
-
-Download PDF Again
-
-</button>
-
-
-<br>
-
-
-<a
-href="index.html"
-class="home-btn"
->
-Home
-</a>
-
-
-<a
-href="contact.html"
-class="contact-btn"
->
-Contact Us
-</a>
+Registration details prepared successfully.
+Your PDF download should start automatically.
 
 </div>
+
 
 </div>
 
 
 
-<!-- FOOTER -->
+<!-- PDF CONTENT -->
 
-<footer>
+<div id="pdfContent">
 
-<b>AnshKnowledgeBase</b>
 
-<br><br>
+<div class="pdf-header">
 
-Quality Tuition & Learning
+<h1>AnshKnowledgeBase</h1>
 
-<br><br>
+<p>Quality Tuition & Learning</p>
 
-Address: YOUR TUITION ADDRESS
+<p>Student Registration Form</p>
 
-<br>
+</div>
 
-Phone: YOUR PHONE NUMBER
 
-<br>
+<img
+id="pdfPhoto"
+class="pdf-photo"
+src=""
+alt="Student Photo"
+>
 
-Email: YOUR EMAIL ADDRESS
 
-<br><br>
+<div class="pdf-section">
 
-© 2026 AnshKnowledgeBase. All Rights Reserved.
+<h2>Student Details</h2>
 
-</footer>
+<div class="pdf-row">
+<strong>Name:</strong>
+<span id="pdfName"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Date of Birth:</strong>
+<span id="pdfDob"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Gender:</strong>
+<span id="pdfGender"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Class:</strong>
+<span id="pdfClass"></span>
+</div>
+
+<div class="pdf-row">
+<strong>School:</strong>
+<span id="pdfSchool"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Subjects Required:</strong>
+<span id="pdfSubjects"></span>
+</div>
+
+</div>
+
+
+<div class="pdf-section">
+
+<h2>Parent / Guardian Details</h2>
+
+<div class="pdf-row">
+<strong>Father's Name:</strong>
+<span id="pdfFather"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Mother's Name:</strong>
+<span id="pdfMother"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Mobile:</strong>
+<span id="pdfPhone"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Email:</strong>
+<span id="pdfEmail"></span>
+</div>
+
+</div>
+
+
+<div class="pdf-section">
+
+<h2>Address</h2>
+
+<div class="pdf-row">
+<strong>Address:</strong>
+<span id="pdfAddress"></span>
+</div>
+
+<div class="pdf-row">
+<strong>City:</strong>
+<span id="pdfCity"></span>
+</div>
+
+<div class="pdf-row">
+<strong>State:</strong>
+<span id="pdfState"></span>
+</div>
+
+<div class="pdf-row">
+<strong>PIN Code:</strong>
+<span id="pdfPincode"></span>
+</div>
+
+</div>
+
+
+<div class="pdf-section">
+
+<h2>Additional Information</h2>
+
+<div class="pdf-row">
+<strong>Academic Performance:</strong>
+<span id="pdfPerformance"></span>
+</div>
+
+<div class="pdf-row">
+<strong>Other Information:</strong>
+<span id="pdfOther"></span>
+</div>
+
+</div>
+
+
+<div class="pdf-footer">
+
+<p><strong>AnshKnowledgeBase</strong></p>
+
+<p>Quality Tuition & Learning</p>
+
+<p>Thank you for registering with us.</p>
+
+<p>This registration form is generated electronically.</p>
+
+</div>
+
+
+</div>
 
 
 
 <script>
 
-let generatedPDF = null;
+let photoData = "";
 
 
 /* PHOTO PREVIEW */
 
 document
 .getElementById("studentPhoto")
-.addEventListener("change", function(){
+.addEventListener("change", function(event){
 
-    const file = this.files[0];
+    const file = event.target.files[0];
 
-    if(file){
-
-        const reader = new FileReader();
-
-        reader.onload = function(e){
-
-            const img =
-            document.getElementById("photoPreview");
-
-            img.src = e.target.result;
-
-            img.style.display = "block";
-
-        };
-
-        reader.readAsDataURL(file);
-
+    if(!file){
+        return;
     }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        photoData = e.target.result;
+
+        document
+        .getElementById("photoPreview")
+        .src = photoData;
+
+    };
+
+    reader.readAsDataURL(file);
 
 });
 
 
 
-/* GET RADIO VALUE */
-
-function getGender(){
-
-    const selected =
-    document.querySelector(
-        'input[name="gender"]:checked'
-    );
-
-    return selected
-    ? selected.value
-    : "";
-
-}
-
-
-
-/* CREATE PDF */
+/* FORM SUBMIT */
 
 document
-.getElementById("studentForm")
-.addEventListener("submit", function(event){
+.getElementById("registrationForm")
+.addEventListener("submit", async function(event){
 
     event.preventDefault();
 
 
-    const photoFile =
-    document.getElementById("studentPhoto").files[0];
+    if(!photoData){
 
-
-    if(!photoFile){
-
-        alert("Please upload student photo.");
+        alert("Please upload the student's photo.");
 
         return;
 
     }
 
 
-    const reader = new FileReader();
+    /* GET VALUES */
 
+    const name =
+    document.getElementById("studentName").value;
 
-    reader.onload = function(e){
+    const dob =
+    document.getElementById("dob").value;
 
-        const photo =
-        e.target.result;
+    const gender =
+    document.querySelector('input[name="gender"]:checked').value;
 
+    const studentClass =
+    document.getElementById("studentClass").value;
 
-        const studentName =
-        document.getElementById("studentName").value;
+    const school =
+    document.getElementById("school").value;
 
-        const dob =
-        document.getElementById("dob").value;
+    const subjects =
+    document.getElementById("subjects").value;
 
-        const gender =
-        getGender();
+    const father =
+    document.getElementById("fatherName").value;
 
-        const studentClass =
-        document.getElementById("studentClass").value;
+    const mother =
+    document.getElementById("motherName").value;
 
-        const school =
-        document.getElementById("school").value;
+    const phone =
+    document.getElementById("parentPhone").value;
 
-        const subjects =
-        document.getElementById("subjects").value;
+    const email =
+    document.getElementById("email").value;
 
-        const fatherName =
-        document.getElementById("fatherName").value;
+    const address =
+    document.getElementById("address").value;
 
-        const motherName =
-        document.getElementById("motherName").value;
+    const city =
+    document.getElementById("city").value;
 
-        const parentPhone =
-        document.getElementById("parentPhone").value;
+    const state =
+    document.getElementById("state").value;
 
-        const parentEmail =
-        document.getElementById("parentEmail").value;
+    const pincode =
+    document.getElementById("pincode").value;
 
-        const occupation =
-        document.getElementById("occupation").value;
+    const performance =
+    document.getElementById("performance").value;
 
-        const address =
-        document.getElementById("address").value;
+    const other =
+    document.getElementById("other").value;
 
-        const city =
-        document.getElementById("city").value;
 
-        const state =
-        document.getElementById("state").value;
 
-        const pincode =
-        document.getElementById("pincode").value;
+    /* PUT DATA INTO PDF */
 
-        const percentage =
-        document.getElementById("percentage").value;
+    document.getElementById("pdfName").textContent = name;
 
-        const performance =
-        document.getElementById("performance").value;
+    document.getElementById("pdfDob").textContent = dob;
 
-        const goal =
-        document.getElementById("goal").value;
+    document.getElementById("pdfGender").textContent = gender;
 
-        const notes =
-        document.getElementById("notes").value;
+    document.getElementById("pdfClass").textContent = studentClass;
 
-        const timing =
-        document.getElementById("timing").value;
+    document.getElementById("pdfSchool").textContent = school;
 
+    document.getElementById("pdfSubjects").textContent = subjects;
 
+    document.getElementById("pdfFather").textContent = father;
 
-        /* PDF HTML */
+    document.getElementById("pdfMother").textContent = mother;
 
-        const pdfContent =
-        document.createElement("div");
+    document.getElementById("pdfPhone").textContent = phone;
 
+    document.getElementById("pdfEmail").textContent = email;
 
-        pdfContent.style.width = "800px";
+    document.getElementById("pdfAddress").textContent = address;
 
-        pdfContent.style.background = "white";
+    document.getElementById("pdfCity").textContent = city;
 
-        pdfContent.style.padding = "35px";
+    document.getElementById("pdfState").textContent = state;
 
-        pdfContent.style.fontFamily =
-        "Arial, sans-serif";
+    document.getElementById("pdfPincode").textContent = pincode;
 
-        pdfContent.style.color = "#222";
+    document.getElementById("pdfPerformance").textContent = performance || "Not provided";
 
+    document.getElementById("pdfOther").textContent = other || "Not provided";
 
-        pdfContent.innerHTML = `
+    document.getElementById("pdfPhoto").src = photoData;
 
-        <div style="
-            border:5px solid #b40000;
-            padding:25px;
-            background:#fffdf5;
-        ">
 
-            <div style="
-                text-align:center;
-                border-bottom:3px solid #b40000;
-                padding-bottom:15px;
-            ">
-
-                <h1 style="
-                    margin:0;
-                    color:#b40000;
-                    font-size:32px;
-                ">
-                    AnshKnowledgeBase
-                </h1>
-
-                <p style="
-                    margin:8px 0;
-                    color:#d08000;
-                    font-size:17px;
-                    font-weight:bold;
-                ">
-                    Quality Tuition & Learning
-                </p>
-
-                <p style="
-                    margin:5px;
-                    font-size:13px;
-                ">
-                    Student Registration Form
-                </p>
-
-            </div>
-
-
-            <div style="
-                text-align:center;
-                margin-top:20px;
-            ">
-
-                <img
-                    src="${photo}"
-                    style="
-                        width:130px;
-                        height:150px;
-                        object-fit:cover;
-                        border:4px solid #b40000;
-                        border-radius:8px;
-                    "
-                >
-
-            </div>
-
-
-            <h2 style="
-                color:#b40000;
-                border-bottom:2px solid #b40000;
-                padding-bottom:6px;
-                margin-top:25px;
-            ">
-                Student Details
-            </h2>
-
-
-            <table style="
-                width:100%;
-                border-collapse:collapse;
-                font-size:14px;
-            ">
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Student Name</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${studentName}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Date of Birth</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${dob}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Gender</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${gender}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Class</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${studentClass}
-                    </td>
-                </tr>
 
+    /* WAIT FOR IMAGE */
 
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>School</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${school}
-                    </td>
-                </tr>
+    await new Promise(function(resolve){
 
+        const img = document.getElementById("pdfPhoto");
 
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Subjects Required</b>
-                    </td>
+        if(img.complete){
 
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${subjects}
-                    </td>
-                </tr>
-
-            </table>
-
-
-
-            <h2 style="
-                color:#b40000;
-                border-bottom:2px solid #b40000;
-                padding-bottom:6px;
-                margin-top:25px;
-            ">
-                Parent / Guardian Details
-            </h2>
+            resolve();
 
+        }else{
 
-            <table style="
-                width:100%;
-                border-collapse:collapse;
-                font-size:14px;
-            ">
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Father's Name</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${fatherName}
-                    </td>
-                </tr>
-
+            img.onload = resolve;
 
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Mother's Name</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${motherName}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Mobile Number</b>
-                    </td>
+        }
 
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${parentPhone}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Email</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${parentEmail}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        <b>Occupation</b>
-                    </td>
-
-                    <td style="padding:8px;border:1px solid #ccc;">
-                        ${occupation}
-                    </td>
-                </tr>
-
-            </table>
-
-
-
-            <h2 style="
-                color:#b40000;
-                border-bottom:2px solid #b40000;
-                padding-bottom:6px;
-                margin-top:25px;
-            ">
-                Address Details
-            </h2>
+    });
 
 
-            <p>
-                <b>Address:</b>
-                ${address}
-            </p>
 
-            <p>
-                <b>City:</b>
-                ${city}
-            </p>
+    try{
 
-            <p>
-                <b>State:</b>
-                ${state}
-            </p>
 
-            <p>
-                <b>PIN Code:</b>
-                ${pincode}
-            </p>
+        const pdfArea =
+        document.getElementById("pdfContent");
 
 
+        /* MAKE PDF IMAGE */
 
-            <h2 style="
-                color:#b40000;
-                border-bottom:2px solid #b40000;
-                padding-bottom:6px;
-                margin-top:25px;
-            ">
-                Academic Information
-            </h2>
+        const canvas =
+        await html2canvas(pdfArea, {
 
+            scale:2,
 
-            <p>
-                <b>Previous Percentage:</b>
-                ${percentage}
-            </p>
+            useCORS:true,
 
-            <p>
-                <b>Academic Performance:</b>
-                ${performance}
-            </p>
+            backgroundColor:"#ffffff"
 
-            <p>
-                <b>Learning Goal:</b>
-                ${goal}
-            </p>
+        });
 
-            <p>
-                <b>Preferred Timing:</b>
-                ${timing}
-            </p>
 
-            <p>
-                <b>Additional Notes:</b>
-                ${notes}
-            </p>
+        const imageData =
+        canvas.toDataURL("image/jpeg", 0.95);
 
 
+        /* CREATE PDF */
 
-            <div style="
-                margin-top:35px;
-                padding:18px;
-                background:#fff0d0;
-                border-left:6px solid #b40000;
-            ">
+        const { jsPDF } = window.jspdf;
 
-                <h2 style="
-                    margin-top:0;
-                    color:#b40000;
-                ">
-                    Contact AnshKnowledgeBase
-                </h2>
+        const pdf =
+        new jsPDF("p","mm","a4");
 
-                <p>
-                    <b>Address:</b>
-                    YOUR TUITION ADDRESS
-                </p>
 
-                <p>
-                    <b>Phone:</b>
-                    YOUR PHONE NUMBER
-                </p>
+        const pageWidth =
+        pdf.internal.pageSize.getWidth();
 
-                <p>
-                    <b>Email:</b>
-                    YOUR EMAIL ADDRESS
-                </p>
+        const pageHeight =
+        pdf.internal.pageSize.getHeight();
 
-            </div>
 
+        const imgWidth =
+        pageWidth;
 
+        const imgHeight =
+        canvas.height * imgWidth / canvas.width;
 
-            <div style="
-               
+
+        let heightLeft =
+        imgHeight;
+
+        let position = 0;
+
+
+        pdf.addImage(
+            imageData,
+            "JPEG",
+            0,
+            position,
+            imgWidth,
+            imgHeight
+        );
+
+
+        heightLeft -= pageHeight;
+
+
+        while(heightLeft > 0){
+
+            position =
+            heightLeft - imgHeight;
+
+            pdf.addPage();
+
+            pdf.addImage(
+                imageData,
+                "JPEG",
+                0,
+                position,
+                imgWidth,
+                imgHeight
+            );
+
+            heightLeft -= pageHeight;
+
+        }
+
+
+        /* FILE NAME */
+
+        const safeName =
+        name
+        .replace(/[^a-z0-9]/gi,"_")
+        .substring(0,50);
+
+
+        pdf.save(
+            "AnshKnowledgeBase_Registration_" +
+            safeName +
+            ".pdf"
+        );
+
+
+        document
+        .getElementById("successMessage")
+        .style.display = "block";
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+        "PDF बनाते समय समस्या हुई। कृपया Internet चालू करके दोबारा कोशिश करें।"
+        );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
