@@ -2,493 +2,1441 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <title>AnshKnowledgeBase - Quality Tuition & Learning</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>AnshKnowledgeBase | Learn. Practice. Achieve.</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta name="description"
+content="AnshKnowledgeBase - Quality tuition, strong concepts and better learning for students.">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #222;
+/* ================================
+   RESET
+================================ */
 
-      background-image: url("background.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-      line-height: 1.6;
-    }
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:#171717;
+
+    background:
+    #f7f7f7
+    url("background.png")
+    center top / cover
+    fixed no-repeat;
+
+    line-height:1.6;
+}
 
 
-    /* =========================
-       HEADER
-       ========================= */
+/* ================================
+   TOP BAR
+================================ */
 
-    header {
-      background: linear-gradient(
+.top-bar{
+
+    background:#111;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:8px 15px;
+
+    font-size:13px;
+
+    letter-spacing:.3px;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar{
+
+    width:100%;
+
+    background:
+    rgba(255,255,255,.97);
+
+    border-bottom:
+    1px solid #e5e5e5;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    box-shadow:
+    0 4px 18px
+    rgba(0,0,0,.08);
+}
+
+
+.nav-container{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    min-height:78px;
+
+    padding:0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/* LOGO */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:#111;
+}
+
+
+.brand-mark{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #d40000,
+        #ff4b00
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 5px 15px
+    rgba(210,0,0,.25);
+}
+
+
+.brand-name{
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:-.4px;
+}
+
+
+.brand-name span{
+
+    color:#d40000;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    list-style:none;
+}
+
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    padding:11px 15px;
+
+    border-radius:8px;
+
+    transition:.25s;
+}
+
+
+.nav-links a:hover{
+
+    background:#fff0f0;
+
+    color:#d00000;
+}
+
+
+.nav-join{
+
+    background:#d90000 !important;
+
+    color:#fff !important;
+
+    padding:
+    12px 21px !important;
+
+    box-shadow:
+    0 5px 14px
+    rgba(210,0,0,.22);
+}
+
+
+.nav-join:hover{
+
+    background:#b80000 !important;
+
+    transform:
+    translateY(-1px);
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+
+    position:relative;
+
+    min-height:
+    650px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
         90deg,
-        #b30000,
-        #e60000,
-        #ff4d00
-      );
-
-      color: white;
-      padding: 15px 5%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    }
+        rgba(255,255,255,.98) 0%,
+        rgba(255,255,255,.90) 48%,
+        rgba(255,255,255,.45) 100%
+    );
+}
 
 
-    .logo-text {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
+.hero-container{
+
+    width:100%;
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:
+    80px 25px;
+
+    display:grid;
+
+    grid-template-columns:
+    1.15fr .85fr;
+
+    align-items:center;
+
+    gap:60px;
+}
 
 
-    nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.hero-content{
+
+    max-width:720px;
+}
 
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
+.badge{
+
+    display:inline-block;
+
+    padding:
+    8px 15px;
+
+    background:#fff0f0;
+
+    color:#c40000;
+
+    border:
+    1px solid #ffd0d0;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:22px;
+}
 
 
-    nav a:hover {
-      background: rgba(255,255,255,0.20);
-    }
+.hero h1{
+
+    font-size:
+    clamp(42px,6vw,72px);
+
+    line-height:
+    1.05;
+
+    letter-spacing:
+    -2.5px;
+
+    color:#111;
+
+    margin-bottom:20px;
+}
 
 
-    /* =========================
-       HERO SECTION
-       ========================= */
+.hero h1 span{
 
-    .hero {
-      text-align: center;
-      padding: 75px 20px 70px;
-
-      background: rgba(255,255,255,0.30);
-    }
+    color:#d00000;
+}
 
 
-    .hero h1 {
-      color: #a50000;
-      font-size: 48px;
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
+.hero-subtitle{
+
+    font-size:20px;
+
+    color:#555;
+
+    max-width:650px;
+
+    margin-bottom:30px;
+}
 
 
-    .tagline {
-      color: #c76a00;
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
 
 
-    .hero p {
-      max-width: 900px;
-      margin: auto;
+.btn{
 
-      font-size: 19px;
-      color: #222;
-    }
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:52px;
+
+    padding:
+    0 25px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    font-size:15px;
+
+    transition:.25s;
+}
 
 
-    .hero-buttons {
-      margin-top: 30px;
-    }
+.btn-primary{
+
+    background:#d60000;
+
+    color:#fff;
+
+    box-shadow:
+    0 8px 22px
+    rgba(214,0,0,.25);
+}
 
 
-    .main-button {
-      display: inline-block;
+.btn-primary:hover{
 
-      background: linear-gradient(
+    background:#b90000;
+
+    transform:
+    translateY(-2px);
+}
+
+
+.btn-outline{
+
+    background:#fff;
+
+    color:#222;
+
+    border:
+    1px solid #d7d7d7;
+}
+
+
+.btn-outline:hover{
+
+    border-color:#d00000;
+
+    color:#d00000;
+
+    transform:
+    translateY(-2px);
+}
+
+
+/* HERO CARD */
+
+.hero-card{
+
+    background:
+    rgba(255,255,255,.94);
+
+    border:
+    1px solid #e9e9e9;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 25px 60px
+    rgba(0,0,0,.13);
+
+    backdrop-filter:
+    blur(10px);
+}
+
+
+.hero-card-top{
+
+    color:#d00000;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+
+.hero-card h2{
+
+    font-size:29px;
+
+    line-height:1.2;
+
+    margin-bottom:15px;
+}
+
+
+.hero-card p{
+
+    color:#666;
+
+    margin-bottom:25px;
+}
+
+
+.hero-card-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:13px 0;
+
+    border-bottom:
+    1px solid #eee;
+
+    font-weight:600;
+}
+
+
+.hero-card-item:last-child{
+
+    border-bottom:none;
+}
+
+
+.check{
+
+    width:27px;
+
+    height:27px;
+
+    border-radius:50%;
+
+    background:#fff0f0;
+
+    color:#d00000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:900;
+}
+
+
+/* ================================
+   STATS
+================================ */
+
+.stats{
+
+    max-width:1100px;
+
+    margin:
+    -55px auto 0;
+
+    position:relative;
+
+    z-index:10;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.12);
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    overflow:hidden;
+}
+
+
+.stat{
+
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-right:
+    1px solid #eee;
+}
+
+
+.stat:last-child{
+
+    border-right:none;
+}
+
+
+.stat strong{
+
+    display:block;
+
+    color:#d00000;
+
+    font-size:30px;
+
+    line-height:1;
+
+    margin-bottom:7px;
+}
+
+
+.stat span{
+
+    color:#666;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+
+/* ================================
+   MAIN SECTIONS
+================================ */
+
+.section{
+
+    max-width:1200px;
+
+    margin:
+    85px auto;
+
+    padding:
+    0 25px;
+}
+
+
+.section-heading{
+
+    text-align:center;
+
+    max-width:750px;
+
+    margin:
+    0 auto 45px;
+}
+
+
+.section-label{
+
+    color:#d00000;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:10px;
+}
+
+
+.section-heading h2{
+
+    font-size:
+    clamp(30px,4vw,44px);
+
+    line-height:1.15;
+
+    color:#111;
+
+    margin-bottom:14px;
+}
+
+
+.section-heading p{
+
+    color:#666;
+
+    font-size:17px;
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about{
+
+    background:
+    rgba(255,255,255,.94);
+
+    border-radius:24px;
+
+    padding:
+    55px;
+
+    box-shadow:
+    0 15px 45px
+    rgba(0,0,0,.09);
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+
+.about h2{
+
+    font-size:38px;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+
+.about h2 span{
+
+    color:#d00000;
+}
+
+
+.about p{
+
+    color:#555;
+
+    margin-bottom:15px;
+
+    font-size:16px;
+}
+
+
+.about-points{
+
+    display:grid;
+
+    gap:12px;
+}
+
+
+.about-point{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    font-weight:700;
+}
+
+
+.about-point b{
+
+    color:#d00000;
+}
+
+
+/* ================================
+   SUBJECTS
+================================ */
+
+.subject-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+.subject{
+
+    background:#fff;
+
+    padding:
+    28px 20px;
+
+    border-radius:15px;
+
+    border:
+    1px solid #ededed;
+
+    box-shadow:
+    0 7px 20px
+    rgba(0,0,0,.06);
+
+    transition:.25s;
+}
+
+
+.subject:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:#ffb4b4;
+
+    box-shadow:
+    0 12px 28px
+    rgba(0,0,0,.10);
+}
+
+
+.subject-icon{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:#fff0f0;
+
+    color:#d00000;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+
+.subject h3{
+
+    margin-bottom:6px;
+
+    font-size:18px;
+}
+
+
+.subject p{
+
+    color:#777;
+
+    font-size:14px;
+}
+
+
+/* ================================
+   WHY US
+================================ */
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+
+.why-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    border:
+    1px solid #e9e9e9;
+
+    transition:.25s;
+}
+
+
+.why-card:hover{
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.09);
+}
+
+
+.why-number{
+
+    color:#d00000;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+
+.why-card h3{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+
+.why-card p{
+
+    color:#666;
+
+    font-size:15px;
+}
+
+
+/* ================================
+   TEACHER SECTION
+================================ */
+
+.teacher-section{
+
+    background:
+    #111;
+
+    color:#fff;
+
+    max-width:none;
+
+    margin:
+    85px 0;
+
+    padding:
+    75px 25px;
+}
+
+
+.teacher-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+
+.teacher-section .section-label{
+
+    color:#ff5a5a;
+}
+
+
+.teacher-section h2{
+
+    font-size:42px;
+
+    line-height:1.15;
+
+    margin-bottom:15px;
+}
+
+
+.teacher-section p{
+
+    color:#bbb;
+
+    max-width:650px;
+
+    font-size:17px;
+}
+
+
+/* ================================
+   ADMISSION CTA
+================================ */
+
+.cta{
+
+    max-width:1200px;
+
+    margin:
+    85px auto;
+
+    padding:
+    55px 45px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
         135deg,
-        #d00000,
-        #ff3b00
-      );
+        #c90000,
+        #ef2d00
+    );
 
-      color: white;
-      text-decoration: none;
+    color:#fff;
 
-      padding: 14px 30px;
-      margin: 7px;
+    display:flex;
 
-      border-radius: 10px;
+    align-items:center;
 
-      font-size: 17px;
-      font-weight: bold;
+    justify-content:space-between;
 
-      box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+    gap:30px;
 
-      transition: 0.3s;
+    box-shadow:
+    0 18px 45px
+    rgba(190,0,0,.25);
+}
+
+
+.cta h2{
+
+    font-size:38px;
+
+    line-height:1.15;
+
+    margin-bottom:10px;
+}
+
+
+.cta p{
+
+    color:#ffe7e7;
+
+    max-width:650px;
+}
+
+
+.cta .btn{
+
+    background:#fff;
+
+    color:#c00000;
+
+    white-space:nowrap;
+}
+
+
+.cta .btn:hover{
+
+    background:#fff4f4;
+
+    transform:
+    translateY(-2px);
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+
+.contact-box{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:
+    40px;
+
+    box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.08);
+
+    text-align:center;
+}
+
+
+.contact-box h2{
+
+    font-size:32px;
+
+    margin-bottom:15px;
+}
+
+
+.contact-details{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:
+    25px 0;
+}
+
+
+.contact-item{
+
+    background:#fafafa;
+
+    border:
+    1px solid #e8e8e8;
+
+    border-radius:12px;
+
+    padding:
+    15px 20px;
+
+    font-size:14px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+
+    background:#111;
+
+    color:#fff;
+
+    padding:
+    55px 25px 25px;
+}
+
+
+.footer-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr;
+
+    gap:45px;
+}
+
+
+.footer-brand h2{
+
+    font-size:25px;
+
+    margin-bottom:10px;
+}
+
+
+.footer-brand h2 span{
+
+    color:#ff3b3b;
+}
+
+
+.footer-brand p{
+
+    color:#aaa;
+
+    max-width:450px;
+}
+
+
+footer h3{
+
+    margin-bottom:15px;
+
+    font-size:16px;
+}
+
+
+footer ul{
+
+    list-style:none;
+}
+
+
+footer li{
+
+    margin:
+    8px 0;
+}
+
+
+footer a{
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+
+footer a:hover{
+
+    color:#fff;
+}
+
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:
+    40px auto 0;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid #292929;
+
+    color:#777;
+
+    text-align:center;
+
+    font-size:13px;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:900px){
+
+    .nav-container{
+
+        flex-direction:column;
+
+        padding:
+        15px;
     }
 
+    .nav-links{
 
-    .main-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.30);
+        flex-wrap:wrap;
+
+        justify-content:center;
     }
 
+    .hero-container{
 
-    /* =========================
-       GENERAL SECTIONS
-       ========================= */
+        grid-template-columns:1fr;
 
-    .section {
-      width: 90%;
-      max-width: 1200px;
-
-      margin: 35px auto;
-
-      padding: 45px 35px;
-
-      background: rgba(255,255,255,0.92);
-
-      border-radius: 22px;
-
-      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        padding:
+        60px 20px;
     }
 
+    .hero{
 
-    .section h2 {
-      text-align: center;
-
-      color: #a50000;
-
-      font-size: 32px;
-
-      margin-bottom: 20px;
+        min-height:auto;
     }
 
+    .hero-card{
 
-    .section p {
-      font-size: 17px;
-      margin-bottom: 15px;
+        max-width:600px;
+
+        margin:auto;
     }
 
+    .stats{
 
-    /* =========================
-       ABOUT
-       ========================= */
+        width:92%;
 
-    .about-box {
-      text-align: center;
-      max-width: 950px;
-      margin: auto;
+        grid-template-columns:
+        repeat(2,1fr);
+
+        margin-top:-25px;
     }
 
+    .stat:nth-child(2){
 
-    /* =========================
-       SUBJECTS
-       ========================= */
-
-    .subjects-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(200px, 1fr));
-
-      gap: 18px;
-
-      margin-top: 25px;
+        border-right:none;
     }
 
+    .about{
 
-    .subject-card {
-      background: linear-gradient(
-        135deg,
-        #fff4e6,
-        #ffe0d0
-      );
+        grid-template-columns:1fr;
 
-      border: 2px solid #ffb000;
-
-      padding: 22px 15px;
-
-      border-radius: 15px;
-
-      text-align: center;
-
-      font-size: 18px;
-      font-weight: bold;
-
-      color: #9b0000;
-
-      transition: 0.3s;
+        padding:35px 25px;
     }
 
+    .subject-grid{
 
-    .subject-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 7px 15px rgba(0,0,0,0.15);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
+    .why-grid{
 
-    /* =========================
-       WHY CHOOSE US
-       ========================= */
-
-    .features-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-      gap: 20px;
-
-      margin-top: 25px;
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
+    .teacher-inner{
 
-    .feature {
-      background: #fff8ed;
+        flex-direction:column;
 
-      border-left: 6px solid #e00000;
-
-      padding: 22px;
-
-      border-radius: 12px;
-
-      box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+        align-items:flex-start;
     }
 
+    .cta{
 
-    .feature h3 {
-      color: #a50000;
-      margin-bottom: 8px;
+        width:92%;
+
+        flex-direction:column;
+
+        align-items:flex-start;
     }
 
+    .footer-container{
 
-    /* =========================
-       TEACHERS PREVIEW
-       ========================= */
-
-    .teachers-preview {
-      text-align: center;
+        grid-template-columns:1fr 1fr;
     }
 
+}
 
-    .teachers-preview p {
-      max-width: 850px;
-      margin: 0 auto 20px;
+
+@media(max-width:600px){
+
+    .top-bar{
+
+        font-size:11px;
     }
 
+    .brand-name{
 
-    /* =========================
-       ADMISSION
-       ========================= */
-
-    .admission {
-      text-align: center;
-
-      background: linear-gradient(
-        135deg,
-        rgba(255,245,220,0.96),
-        rgba(255,225,210,0.96)
-      );
+        font-size:18px;
     }
 
+    .brand-mark{
 
-    .admission h2 {
-      color: #b00000;
+        width:42px;
+
+        height:42px;
     }
 
+    .nav-links{
 
-    .admission p {
-      max-width: 850px;
-      margin: 10px auto;
+        gap:2px;
     }
 
+    .nav-links a{
 
-    /* =========================
-       CONTACT PREVIEW
-       ========================= */
+        font-size:13px;
 
-    .contact-preview {
-      text-align: center;
+        padding:
+        8px 9px;
     }
 
+    .hero h1{
 
-    .contact-info {
-      margin: 20px auto;
+        font-size:42px;
 
-      max-width: 700px;
-
-      background: #fff8f0;
-
-      border-radius: 15px;
-
-      padding: 25px;
-
-      border: 2px solid #ffb000;
+        letter-spacing:-1.5px;
     }
 
+    .hero-subtitle{
 
-    .contact-info p {
-      margin: 10px 0;
-      font-size: 17px;
+        font-size:17px;
     }
 
+    .hero-card{
 
-    /* =========================
-       QUICK LINKS
-       ========================= */
-
-    .quick-links {
-      text-align: center;
+        padding:25px;
     }
 
+    .stats{
 
-    .quick-links-buttons {
-      margin-top: 20px;
+        grid-template-columns:1fr 1fr;
     }
 
+    .stat strong{
 
-    /* =========================
-       FOOTER
-       ========================= */
-
-    footer {
-      margin-top: 50px;
-
-      background: linear-gradient(
-        90deg,
-        #8f0000,
-        #d00000,
-        #ff4500
-      );
-
-      color: white;
-
-      text-align: center;
-
-      padding: 35px 20px;
+        font-size:24px;
     }
 
+    .section{
 
-    footer h2 {
-      margin-bottom: 10px;
+        margin:
+        60px auto;
     }
 
+    .section-heading h2{
 
-    footer p {
-      margin: 6px 0;
+        font-size:32px;
     }
 
+    .subject-grid{
 
-    footer a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
     }
 
+    .subject{
 
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 768px) {
-
-      header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 13px 10px;
-      }
-
-
-      .logo-text {
-        font-size: 23px;
-      }
-
-
-      nav a {
-        font-size: 14px;
-        padding: 8px 10px;
-      }
-
-
-      .hero {
-        padding: 55px 15px;
-      }
-
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-
-      .tagline {
-        font-size: 21px;
-      }
-
-
-      .hero p {
-        font-size: 16px;
-      }
-
-
-      .section {
-        width: 94%;
-        padding: 30px 20px;
-        margin: 25px auto;
-      }
-
-
-      .section h2 {
-        font-size: 27px;
-      }
-
-
-      .subject-card {
-        font-size: 16px;
-      }
-
-
-      .main-button {
-        display: block;
-        max-width: 280px;
-        margin: 10px auto;
-      }
-
+        padding:20px 14px;
     }
 
-  </style>
+    .why-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .teacher-section h2{
+
+        font-size:32px;
+    }
+
+    .cta{
+
+        padding:35px 25px;
+    }
+
+    .cta h2{
+
+        font-size:30px;
+    }
+
+    .contact-box{
+
+        padding:28px 18px;
+    }
+
+    .contact-item{
+
+        width:100%;
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -496,506 +1444,584 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-       ========================= -->
+<!-- TOP ANNOUNCEMENT -->
 
-  <header>
+<div class="top-bar">
 
-    <div class="logo-text">
-      AnshKnowledgeBase
-    </div>
+    Admissions &nbsp;•&nbsp;
+    Quality Learning &nbsp;•&nbsp;
+    Strong Concepts &nbsp;•&nbsp;
+    Better Results
 
+</div>
 
-    <nav>
 
-      <a href="index.html">
-        Home
-      </a>
+<!-- NAVBAR -->
 
-      <a href="teachers.html">
-        Our Teachers
-      </a>
+<header class="navbar">
 
-      <a href="contact.html">
-        Contact
-      </a>
+<div class="nav-container">
 
-      <a href="join.html">
-        Join Us
-      </a>
 
-    </nav>
+<a href="index.html"
+class="brand">
 
-  </header>
+<div class="brand-mark">
+    A
+</div>
 
+<div class="brand-name">
+    Ansh<span>KnowledgeBase</span>
+</div>
 
+</a>
 
-  <!-- =========================
-       HERO
-       ========================= -->
 
-  <section class="hero">
+<ul class="nav-links">
 
-    <h1>
-      Welcome to AnshKnowledgeBase
-    </h1>
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
 
+<li>
+<a href="teachers.html">
+Teachers
+</a>
+</li>
 
-    <div class="tagline">
-      Learn • Practice • Improve • Achieve
-    </div>
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
 
+<li>
+<a href="join.html"
+class="nav-join">
+Join Now
+</a>
+</li>
 
-    <p>
-      AnshKnowledgeBase is dedicated to providing quality education,
-      building strong concepts, improving academic performance,
-      and helping students learn with confidence.
-    </p>
+</ul>
 
 
-    <div class="hero-buttons">
+</div>
 
-      <a
-        href="join.html"
-        class="main-button">
-        Join Our Tuition
-      </a>
+</header>
 
 
-      <a
-        href="teachers.html"
-        class="main-button">
-        Meet Our Teachers
-      </a>
 
-    </div>
+<!-- HERO -->
 
-  </section>
+<section class="hero">
 
+<div class="hero-container">
 
 
-  <!-- =========================
-       ABOUT
-       ========================= -->
+<div class="hero-content">
 
-  <section class="section">
+<div class="badge">
+    QUALITY EDUCATION • BETTER FUTURE
+</div>
 
-    <div class="about-box">
 
-      <h2>
-        About Our Tuition
-      </h2>
+<h1>
 
+Learn Better.
+<br>
 
-      <p>
-        AnshKnowledgeBase is a student-focused tuition platform
-        where students can learn difficult topics in a simple,
-        clear, and understandable way.
-      </p>
+<span>Achieve More.</span>
 
+</h1>
 
-      <p>
-        Our goal is to build strong fundamentals, improve
-        academic performance, solve doubts, and create a
-        positive learning environment for every student.
-      </p>
 
+<p class="hero-subtitle">
 
-      <p>
-        We believe that every student can improve with the
-        right guidance, regular practice, and proper support.
-      </p>
+AnshKnowledgeBase is a student-focused learning platform
+designed to build strong concepts, improve confidence,
+and help students move towards their academic goals.
 
-    </div>
+</p>
 
-  </section>
 
+<div class="hero-buttons">
 
+<a href="join.html"
+class="btn btn-primary">
 
-  <!-- =========================
-       SUBJECTS
-       ========================= -->
+    Join Our Tuition →
 
-  <section class="section">
+</a>
 
-    <h2>
-      Our Subjects
-    </h2>
 
+<a href="teachers.html"
+class="btn btn-outline">
 
-    <div class="subjects-grid">
+    Meet Our Teachers
 
-      <div class="subject-card">
-        Mathematics
-      </div>
+</a>
 
-      <div class="subject-card">
-        Science
-      </div>
+</div>
 
-      <div class="subject-card">
-        English
-      </div>
+</div>
 
-      <div class="subject-card">
-        Hindi
-      </div>
 
-      <div class="subject-card">
-        Gujarati
-      </div>
 
-      <div class="subject-card">
-        Social Science
-      </div>
+<div class="hero-card">
 
-      <div class="subject-card">
-        Computer Science
-      </div>
+<div class="hero-card-top">
+WHY ANSHKNOWLEDGEBASE?
+</div>
 
-      <div class="subject-card">
-        General Knowledge
-      </div>
 
-    </div>
+<h2>
+    Education focused on concepts,
+    practice and progress.
+</h2>
 
-  </section>
 
+<p>
+    A focused learning environment where
+    students can understand, practice and
+    improve step by step.
+</p>
 
 
-  <!-- =========================
-       WHY CHOOSE US
-       ========================= -->
+<div class="hero-card-item">
 
-  <section class="section">
+<div class="check">
+✓
+</div>
 
-    <h2>
-      Why Choose AnshKnowledgeBase?
-    </h2>
+Strong Concept Building
 
+</div>
 
-    <div class="features-grid">
 
+<div class="hero-card-item">
 
-      <div class="feature">
+<div class="check">
+✓
+</div>
 
-        <h3>
-          Clear Concept Explanation
-        </h3>
+Regular Practice
 
-        <p>
-          Difficult concepts are explained in a simple
-          and easy-to-understand manner.
-        </p>
+</div>
 
-      </div>
 
+<div class="hero-card-item">
 
-      <div class="feature">
+<div class="check">
+✓
+</div>
 
-        <h3>
-          Personal Attention
-        </h3>
+Doubt Solving
 
-        <p>
-          We focus on understanding each student's
-          learning needs and progress.
-        </p>
+</div>
 
-      </div>
 
+<div class="hero-card-item">
 
-      <div class="feature">
+<div class="check">
+✓
+</div>
 
-        <h3>
-          Regular Practice
-        </h3>
+Student-Focused Learning
 
-        <p>
-          Regular practice helps students strengthen
-          their concepts and improve confidence.
-        </p>
+</div>
 
-      </div>
+</div>
 
 
-      <div class="feature">
+</div>
 
-        <h3>
-          Doubt Solving
-        </h3>
+</section>
 
-        <p>
-          Students can ask questions and get proper
-          guidance for difficult topics.
-        </p>
 
-      </div>
 
+<!-- STATS -->
 
-      <div class="feature">
+<div class="stats">
 
-        <h3>
-          Friendly Learning Environment
-        </h3>
 
-        <p>
-          We aim to provide a comfortable and positive
-          environment for learning.
-        </p>
+<div class="stat">
 
-      </div>
+<strong>8+</strong>
 
+<span>
+Subjects
+</span>
 
-      <div class="feature">
+</div>
 
-        <h3>
-          Focus on Student Progress
-        </h3>
 
-        <p>
-          Our focus is on consistent improvement,
-          practice, and academic growth.
-        </p>
+<div class="stat">
 
-      </div>
+<strong>1:1</strong>
 
+<span>
+Student Attention
+</span>
 
-    </div>
+</div>
 
-  </section>
 
+<div class="stat">
 
+<strong>100%</strong>
 
-  <!-- =========================
-       TEACHERS
-       ========================= -->
+<span>
+Concept Focus
+</span>
 
-  <section class="section teachers-preview">
+</div>
 
-    <h2>
-      Our Teachers
-    </h2>
 
+<div class="stat">
 
-    <p>
-      Meet our dedicated teachers and learn about
-      their qualifications, subjects, and teaching
-      experience.
-    </p>
+<strong>24×7</strong>
 
+<span>
+Learning Support
+</span>
 
-    <a
-      href="teachers.html"
-      class="main-button">
-      View Our Teachers
-    </a>
+</div>
 
-  </section>
 
+</div>
 
 
-  <!-- =========================
-       ADMISSION
-       ========================= -->
 
-  <section class="section admission">
+<!-- ABOUT -->
 
-    <h2>
-      Admissions Open
-    </h2>
+<section class="section">
 
 
-    <p>
-      Looking for quality tuition and proper academic
-      guidance? Join AnshKnowledgeBase and start your
-      learning journey with us.
-    </p>
+<div class="about">
 
 
-    <p>
-      Students can provide their details through our
-      admission form.
-    </p>
+<div>
 
+<div class="section-label">
+ABOUT US
+</div>
 
-    <a
-      href="join.html"
-      class="main-button">
-      Apply / Join Now
-    </a>
 
-  </section>
+<h2>
 
+Building
+<span>Strong Foundations.</span>
 
+</h2>
 
-  <!-- =========================
-       QUICK LINKS
-       ========================= -->
 
-  <section class="section quick-links">
+<p>
 
-    <h2>
-      Quick Links
-    </h2>
+AnshKnowledgeBase is dedicated to helping
+students understand their subjects clearly
+and develop strong academic fundamentals.
 
+</p>
 
-    <div class="quick-links-buttons">
 
-      <a
-        href="teachers.html"
-        class="main-button">
-        Our Teachers
-      </a>
+<p>
 
+Our approach focuses on understanding,
+practice, doubt solving and continuous
+improvement.
 
-      <a
-        href="contact.html"
-        class="main-button">
-        Contact Us
-      </a>
+</p>
 
+</div>
 
-      <a
-        href="join.html"
-        class="main-button">
-        Join Our Tuition
-      </a>
 
-    </div>
 
-  </section>
+<div class="about-points">
 
 
+<div class="about-point">
+<b>✓</b>
+Clear & Simple Explanation
+</div>
 
-  <!-- =========================
-       CONTACT
-       ========================= -->
 
-  <section class="section contact-preview">
+<div class="about-point">
+<b>✓</b>
+Regular Practice & Revision
+</div>
 
-    <h2>
-      Contact AnshKnowledgeBase
-    </h2>
 
+<div class="about-point">
+<b>✓</b>
+Personal Attention
+</div>
 
-    <p>
-      For admission enquiries, class timings,
-      fees, and other information, please contact us.
-    </p>
 
+<div class="about-point">
+<b>✓</b>
+Doubt Solving
+</div>
 
-    <div class="contact-info">
 
-      <p>
-        <strong>Phone:</strong>
-        +91 9925527617
-      </p>
+<div class="about-point">
+<b>✓</b>
+Friendly Learning Environment
+</div>
 
 
-      <p>
-        <strong>Email:</strong>
-        anshknowledgebase@gmail.com
-      </p>
+<div class="about-point">
+<b>✓</b>
+Focus on Student Progress
+</div>
 
 
-      <p>
-        <strong>Address:</strong>
-        A-87, Ashwini Park Society,
-        Navagam, Bhindoli Road,
-        Udna, Surat
-      </p>
+</div>
 
-    </div>
 
+</div>
 
-    <a
-      href="contact.html"
-      class="main-button">
-      Contact Us
-    </a>
+</section>
 
-  </section>
 
 
+<!-- SUBJECTS -->
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
+<section class="section">
 
-  <footer>
 
-    <h2>
-      AnshKnowledgeBase
-    </h2>
+<div class="section-heading">
 
+<div class="section-label">
+OUR ACADEMICS
+</div>
 
-    <p>
-      Quality Tuition & Learning
-    </p>
 
+<h2>
+Subjects We Cover
+</h2>
 
-    <p>
-      Learn • Practice • Improve • Achieve
-    </p>
 
+<p>
+Build your fundamentals across important
+school subjects with focused learning.
+</p>
 
-    <br>
+</div>
 
 
-    <p>
-      📞 +91 9925527617
-    </p>
 
+<div class="subject-grid">
 
-    <p>
-      📧 anshknowledgebase@gmail.com
-    </p>
 
+<div class="subject">
 
-    <p>
-      📍 A-87, Ashwini Park Society,
-      Navagam, Bhindoli Road,
-      Udna, Surat
-    </p>
+<div class="subject-icon">
+M
+</div>
 
+<h3>
+Mathematics
+</h3>
 
-    <br>
+<p>
+Concepts, problem solving and regular practice.
+</p>
 
+</div>
 
-    <p>
-      <a href="index.html">
-        Home
-      </a>
-      &nbsp; | &nbsp;
 
-      <a href="teachers.html">
-        Teachers
-      </a>
-      &nbsp; | &nbsp;
 
-      <a href="contact.html">
-        Contact
-      </a>
-      &nbsp; | &nbsp;
+<div class="subject">
 
-      <a href="join.html">
-        Join Us
-      </a>
-    </p>
+<div class="subject-icon">
+S
+</div>
 
+<h3>
+Science
+</h3>
 
-    <br>
+<p>
+Clear understanding of important scientific concepts.
+</p>
 
+</div>
 
-    <p>
-      © 2026 AnshKnowledgeBase. All Rights Reserved.
-    </p>
 
-  </footer>
 
+<div class="subject">
 
-</body>
+<div class="subject-icon">
+E
+</div>
 
-</html>
+<h3>
+English
+</h3>
+
+<p>
+Grammar, language and communication skills.
+</p>
+
+</div>
+
+
+
+<div class="subject">
+
+<div class="subject-icon">
+H
+</div>
+
+<h3>
+Hindi
+</h3>
+
+<p>
+Language, grammar and literature learning.
+</p>
+
+</div>
+
+
+
+<div class="subject">
+
+<div class="subject-icon">
+G
+</div>
+
+<h3>
+Gujarati
+</h3>
+
+<p>
+Strong language fundamentals and practice.
+</p>
+
+</div>
+
+
+
+<div class="subject">
+
+<div class="subject-icon">
+SS
+</div>
+
+<h3>
+Social Science
+</h3>
+
+<p>
+History, geography, civics and related concepts.
+</p>
+
+</div>
+
+
+
+<div class="subject">
+
+<div class="subject-icon">
+CS
+</div>
+
+<h3>
+Computer Science
+</h3>
+
+<p>
+Computer fundamentals and digital learning.
+</p>
+
+</div>
+
+
+
+<div class="subject">
+
+<div class="subject-icon">
+GK
+</div>
+
+<h3>
+General Knowledge
+</h3>
+
+<p>
+Knowledge, awareness and regular learning.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- WHY US -->
+
+<section class="section">
+
+
+<div class="section-heading">
+
+<div class="section-label">
+THE ANSHKNOWLEDGEBASE DIFFERENCE
+</div>
+
+
+<h2>
+Why Students Choose Us
+</h2>
+
+
+<p>
+Learning is not only about studying more.
+It is about understanding better.
+</p>
+
+</div>
+
+
+
+<div class="why-grid">
+
+
+<div class="why-card">
+
+<div class="why-number">
+01 — CONCEPTS
+</div>
+
+<h3>
+Understand First
+</h3>
+
+<p>
+We focus on making concepts clear before
+moving towards practice and advanced questions.
+</p>
+
+</div>
+
+
+
+<div class="why-card">
+
+<div class="why-number">
+02 — PRACTICE
+</div>
+
+<h3>
+Practice Regularly
+</h3>
+
+<p>
+Regular practice helps students remember
+concepts and develop confidence
