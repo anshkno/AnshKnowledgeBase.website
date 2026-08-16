@@ -3,362 +3,782 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <title>AnshKnowledgeBase | Quality Tuition</title>
+<title>AnshKnowledgeBase | Quality Education</title>
 
-  <style>
+<style>
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+/* =========================
+   BASIC
+========================= */
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-      /* Your Background Image */
-      background-image: url("Background 2.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+html{
+    scroll-behavior:smooth;
+}
 
-      color: #222;
-    }
-
-    .page {
-      min-height: 100vh;
-      background: rgba(255, 255, 255, 0.58);
-    }
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#222;
+    background:#fff;
+}
 
 
-    /* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
 
-    .navbar {
-      background: rgba(160, 0, 0, 0.96);
-      padding: 15px 25px;
+.navbar{
+    width:100%;
+    background:white;
+    box-shadow:0 2px 12px rgba(0,0,0,0.10);
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+.nav-container{
+    max-width:1200px;
+    margin:auto;
 
-    .logo {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-    }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    padding:15px 25px;
+}
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-      padding: 10px 14px;
+    text-decoration:none;
+    color:#c40000;
+}
 
-      border-radius: 7px;
+.logo-icon{
+    width:45px;
+    height:45px;
 
-      font-weight: bold;
-    }
+    border-radius:50%;
 
-    .nav-links a:hover {
-      background: #ffb300;
-      color: #700000;
-    }
-
-
-    /* ================= HERO ================= */
-
-    .hero {
-      text-align: center;
-      padding: 85px 20px 75px;
-    }
-
-    .hero h1 {
-      color: #b00000;
-      font-size: 48px;
-      margin: 0 0 15px;
-    }
-
-    .hero h2 {
-      color: #d87800;
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 800px;
-      margin: auto;
-
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .hero-button {
-      display: inline-block;
-
-      margin-top: 28px;
-
-      padding: 15px 30px;
-
-      background: #d00000;
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 9px;
-
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .hero-button:hover {
-      background: #ff9800;
-      color: #650000;
-    }
-
-
-    /* ================= SECTIONS ================= */
-
-    .section {
-      max-width: 1100px;
-
-      margin: 30px auto;
-
-      padding: 35px;
-
-      background: rgba(255, 255, 255, 0.91);
-
-      border-radius: 18px;
-
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
-    }
-
-    .section h2 {
-      text-align: center;
-
-      color: #b00000;
-
-      font-size: 30px;
-
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-
-    /* ================= SUBJECTS ================= */
-
-    .subjects {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 16px;
-
-      margin-top: 25px;
-    }
-
-    .subject {
-      padding: 20px;
-
-      text-align: center;
-
-      background: linear-gradient(
+    background:linear-gradient(
         135deg,
-        #fff3cd,
-        #ffe0a3
-      );
+        #d90000,
+        #ffb000
+    );
 
-      color: #850000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-      border-radius: 12px;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
 
-      font-weight: bold;
+.logo-text{
+    font-size:22px;
+    font-weight:bold;
+}
 
-      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
 
-      transition: 0.2s;
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#c40000;
+}
+
+.nav-btn{
+    background:#c40000 !important;
+    color:white !important;
+
+    padding:11px 20px;
+
+    border-radius:8px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:620px;
+
+    background:
+    linear-gradient(
+        rgba(150,0,0,0.78),
+        rgba(255,170,0,0.65)
+    ),
+    url("background.png");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+}
+
+.hero-container{
+    max-width:1200px;
+    width:100%;
+
+    margin:auto;
+    padding:70px 25px;
+
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+
+    gap:50px;
+    align-items:center;
+}
+
+.hero-content h1{
+    font-size:58px;
+    line-height:1.08;
+
+    margin-bottom:20px;
+}
+
+.hero-content h1 span{
+    color:#ffe600;
+}
+
+.hero-content p{
+    font-size:20px;
+    line-height:1.7;
+
+    max-width:650px;
+
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    display:inline-block;
+
+    background:white;
+    color:#c40000;
+
+    padding:15px 28px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+    font-size:17px;
+}
+
+.secondary-btn{
+    display:inline-block;
+
+    background:#c40000;
+    color:white;
+
+    padding:15px 28px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+    font-size:17px;
+
+    border:2px solid white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* HERO CARD */
+
+.hero-card{
+    background:white;
+    color:#222;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.25);
+}
+
+.hero-card h2{
+    color:#c40000;
+
+    margin-bottom:15px;
+
+    font-size:28px;
+}
+
+.hero-card p{
+    color:#555;
+    line-height:1.6;
+
+    margin-bottom:20px;
+}
+
+.hero-list{
+    list-style:none;
+}
+
+.hero-list li{
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+    font-weight:bold;
+}
+
+.hero-list li::before{
+    content:"✓";
+
+    color:#d00000;
+
+    font-weight:bold;
+
+    margin-right:10px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    background:white;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,0.10);
+
+    margin-top:-45px;
+
+    position:relative;
+    z-index:5;
+
+    max-width:1100px;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    border-radius:15px;
+}
+
+.stats-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-right:1px solid #eee;
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat h2{
+    color:#c40000;
+
+    font-size:30px;
+
+    margin-bottom:6px;
+}
+
+.stat p{
+    color:#666;
+}
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:90px 25px;
+}
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-heading h2{
+    font-size:38px;
+
+    color:#b00000;
+
+    margin-bottom:12px;
+}
+
+.section-heading p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:#666;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:#fffaf0;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.about-card{
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+}
+
+.about-card h3{
+    color:#c40000;
+
+    font-size:26px;
+
+    margin-bottom:15px;
+}
+
+.about-card p{
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+}
+
+.about-points{
+    list-style:none;
+}
+
+.about-points li{
+    padding:10px 0;
+
+    font-weight:bold;
+}
+
+.about-points li::before{
+    content:"✓";
+
+    color:#c40000;
+
+    margin-right:10px;
+}
+
+
+/* =========================
+   SUBJECTS
+========================= */
+
+.subject-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+}
+
+.subject-card{
+    background:white;
+
+    border:1px solid #eee;
+
+    border-radius:15px;
+
+    padding:28px 20px;
+
+    text-align:center;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,0.06);
+}
+
+.subject-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.13);
+}
+
+.subject-icon{
+    width:60px;
+    height:60px;
+
+    margin:auto auto 15px;
+
+    border-radius:50%;
+
+    background:#fff0d0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+}
+
+.subject-card h3{
+    color:#b00000;
+
+    margin-bottom:8px;
+}
+
+.subject-card p{
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.features{
+    background:#fff8e8;
+}
+
+.feature-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.feature{
+    background:white;
+
+    padding:30px;
+
+    border-radius:16px;
+
+    border-top:5px solid #c40000;
+}
+
+.feature h3{
+    color:#b00000;
+
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:#666;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   TEACHER CTA
+========================= */
+
+.teacher-section{
+    background:
+    linear-gradient(
+        135deg,
+        #b00000,
+        #e28a00
+    );
+
+    color:white;
+}
+
+.teacher-container{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:80px 25px;
+
+    text-align:center;
+}
+
+.teacher-container h2{
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.teacher-container p{
+    max-width:700px;
+
+    margin:0 auto 30px;
+
+    line-height:1.7;
+
+    font-size:18px;
+}
+
+
+/* =========================
+   ADMISSION
+========================= */
+
+.admission{
+    background:#fff;
+}
+
+.admission-box{
+    background:
+    linear-gradient(
+        135deg,
+        #fff0d0,
+        #fff8e8
+    );
+
+    border:2px solid #ffd27a;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    text-align:center;
+}
+
+.admission-box h2{
+    color:#b00000;
+
+    font-size:36px;
+
+    margin-bottom:15px;
+}
+
+.admission-box p{
+    color:#555;
+
+    max-width:700px;
+
+    margin:0 auto 25px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#170000;
+
+    color:white;
+
+    padding:60px 25px 25px;
+}
+
+.footer-grid{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr 1fr;
+
+    gap:40px;
+}
+
+.footer-col h3{
+    color:#ffb000;
+
+    margin-bottom:20px;
+}
+
+.footer-col p{
+    color:#ccc;
+
+    line-height:1.7;
+}
+
+.footer-col a{
+    display:block;
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1200px;
+
+    margin:40px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid #444;
+
+    text-align:center;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        gap:12px;
     }
 
-    .subject:hover {
-      transform: translateY(-4px);
+    .hero-container{
+        grid-template-columns:1fr;
     }
 
-
-    /* ================= FEATURES ================= */
-
-    .features {
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
+    .hero-content h1{
+        font-size:44px;
     }
 
-    .feature {
-      padding: 22px;
-
-      background: #fff8e1;
-
-      border-left: 5px solid #d00000;
-
-      border-radius: 12px;
+    .subject-grid{
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
-    .feature h3 {
-      color: #b00000;
-      margin-top: 0;
+    .feature-grid{
+        grid-template-columns:1fr;
     }
 
-    .feature p {
-      font-size: 16px;
+    .about-grid{
+        grid-template-columns:1fr;
     }
 
-
-    /* ================= TEACHERS ================= */
-
-    .teacher-box {
-      text-align: center;
+    .footer-grid{
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
-    .teacher-box p {
-      max-width: 800px;
-      margin: auto;
+}
+
+@media(max-width:600px){
+
+    .nav-container{
+        flex-direction:column;
+        gap:15px;
     }
 
-
-    /* ================= QUICK LINKS ================= */
-
-    .quick-links {
-      text-align: center;
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
-    .quick-button {
-      display: inline-block;
-
-      margin: 8px;
-
-      padding: 14px 25px;
-
-      background: #d00000;
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 8px;
-
-      font-weight: bold;
-
-      transition: 0.2s;
+    .hero{
+        min-height:auto;
     }
 
-    .quick-button:hover {
-      background: #ff9800;
-      color: #650000;
+    .hero-content h1{
+        font-size:36px;
     }
 
-
-    /* ================= FOOTER ================= */
-
-    footer {
-      margin-top: 50px;
-
-      padding: 35px 20px;
-
-      text-align: center;
-
-      background: rgba(115, 0, 0, 0.97);
-
-      color: white;
+    .hero-content p{
+        font-size:17px;
     }
 
-    footer h2 {
-      margin-top: 0;
+    .stats-container{
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
-    footer p {
-      margin: 8px;
+    .stat{
+        border-bottom:1px solid #eee;
     }
 
-
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 800px) {
-
-      .navbar {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .subjects {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
+    .subject-grid{
+        grid-template-columns:1fr;
     }
 
-
-    @media (max-width: 500px) {
-
-      .hero {
-        padding: 55px 15px;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .hero h2 {
-        font-size: 21px;
-      }
-
-      .subjects {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        margin: 15px;
-        padding: 22px;
-      }
-
-      .nav-links a {
-        font-size: 13px;
-        padding: 8px 10px;
-      }
-
+    .footer-grid{
+        grid-template-columns:1fr;
     }
 
-  </style>
+    .section{
+        padding:60px 18px;
+    }
+
+    .admission-box{
+        padding:30px 20px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -366,502 +786,839 @@
 <body>
 
 
-<div class="page">
+<!-- =========================
+     NAVBAR
+========================= -->
 
+<nav class="navbar">
 
-  <!-- ================= NAVIGATION ================= -->
+<div class="nav-container">
 
-  <nav class="navbar">
 
-    <div class="logo">
-      AnshKnowledgeBase
-    </div>
+<a href="index.html" class="logo">
 
-    <div class="nav-links">
+<div class="logo-icon">
+AK
+</div>
 
-      <!-- HOME -->
-      <a href="index.html">
-        Home
-      </a>
+<div class="logo-text">
+AnshKnowledgeBase
+</div>
 
-      <!-- TEACHERS PAGE -->
-      <a href="teachers.html">
-        Our Teachers
-      </a>
+</a>
 
-      <!-- CONTACT PAGE -->
-      <a href="contact.html">
-        Contact Us
-      </a>
 
-      <!-- JOIN PAGE -->
-      <a href="join.html">
-        Join Our Tuition
-      </a>
+<div class="nav-links">
 
-    </div>
+<a href="index.html">
+Home
+</a>
 
-  </nav>
+<a href="#about">
+About
+</a>
 
+<a href="#subjects">
+Subjects
+</a>
 
+<a href="teachers.html">
+Teachers
+</a>
 
-  <!-- ================= HERO ================= -->
+<a href="contact.html">
+Contact
+</a>
 
-  <section class="hero">
+<a href="join.html" class="nav-btn">
+Join Now
+</a>
 
-    <h1>
-      Welcome to AnshKnowledgeBase
-    </h1>
-
-    <h2>
-      Learn • Practice • Improve • Achieve
-    </h2>
-
-    <p>
-
-      AnshKnowledgeBase is dedicated to providing
-      quality education, building strong concepts,
-      and helping students learn with confidence.
-
-    </p>
-
-
-    <!-- JOIN PAGE BUTTON -->
-
-    <a class="hero-button" href="join.html">
-      Join Our Tuition
-    </a>
-
-  </section>
-
-
-
-  <!-- ================= ABOUT ================= -->
-
-  <section class="section">
-
-    <h2>
-      About Our Tuition
-    </h2>
-
-    <p>
-
-      AnshKnowledgeBase is a student-focused tuition
-      platform where we help students understand
-      difficult topics easily, build strong fundamentals,
-      and improve their academic performance.
-
-    </p>
-
-    <p>
-
-      Our aim is to provide a friendly learning
-      environment where students can ask questions,
-      clear their doubts, practice regularly, and
-      improve their confidence.
-
-    </p>
-
-    <p>
-
-      We believe that consistent practice,
-      clear concepts, proper guidance, and
-      personal attention can help students
-      achieve their academic goals.
-
-    </p>
-
-  </section>
-
-
-
-  <!-- ================= SUBJECTS ================= -->
-
-  <section class="section">
-
-    <h2>
-      Our Subjects
-    </h2>
-
-    <p style="text-align:center;">
-
-      We provide learning support in various
-      academic subjects.
-
-    </p>
-
-
-    <div class="subjects">
-
-      <div class="subject">
-        Mathematics
-      </div>
-
-      <div class="subject">
-        Science
-      </div>
-
-      <div class="subject">
-        English
-      </div>
-
-      <div class="subject">
-        Hindi
-      </div>
-
-      <div class="subject">
-        Gujarati
-      </div>
-
-      <div class="subject">
-        Social Science
-      </div>
-
-      <div class="subject">
-        Computer Science
-      </div>
-
-      <div class="subject">
-        General Knowledge
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ================= WHY CHOOSE US ================= -->
-
-  <section class="section">
-
-    <h2>
-      Why Choose AnshKnowledgeBase?
-    </h2>
-
-
-    <div class="features">
-
-
-      <div class="feature">
-
-        <h3>
-          Clear Concept Explanation
-        </h3>
-
-        <p>
-
-          Difficult topics are explained in
-          a simple and student-friendly way.
-
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          Personal Attention
-        </h3>
-
-        <p>
-
-          We focus on the individual learning
-          needs and progress of students.
-
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          Regular Practice
-        </h3>
-
-        <p>
-
-          Regular practice helps students
-          strengthen their concepts.
-
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          Doubt Solving
-        </h3>
-
-        <p>
-
-          Students can ask questions and
-          understand difficult concepts clearly.
-
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          Friendly Learning Environment
-        </h3>
-
-        <p>
-
-          We aim to provide a comfortable
-          environment for learning.
-
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          Focus on Student Progress
-        </h3>
-
-        <p>
-
-          Our focus is continuous improvement
-          in understanding and performance.
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ================= TEACHERS ================= -->
-
-  <section class="section teacher-box">
-
-    <h2>
-      Meet Our Teachers
-    </h2>
-
-    <p>
-
-      Our dedicated teachers help students
-      understand concepts clearly, solve doubts,
-      practice regularly, and improve their
-      academic performance.
-
-    </p>
-
-
-    <!-- THIS OPENS teachers.html -->
-
-    <a class="quick-button" href="teachers.html">
-      View Our Teachers
-    </a>
-
-  </section>
-
-
-
-  <!-- ================= LEARNING APPROACH ================= -->
-
-  <section class="section">
-
-    <h2>
-      Our Learning Approach
-    </h2>
-
-
-    <p>
-
-      <b>1. Understand:</b>
-      We focus on understanding the basic
-      concept before moving to difficult topics.
-
-    </p>
-
-
-    <p>
-
-      <b>2. Learn:</b>
-      Students learn through clear explanations
-      and examples.
-
-    </p>
-
-
-    <p>
-
-      <b>3. Practice:</b>
-      Regular practice helps strengthen
-      concepts and improve accuracy.
-
-    </p>
-
-
-    <p>
-
-      <b>4. Clear Doubts:</b>
-      Students can identify and understand
-      difficult questions and concepts.
-
-    </p>
-
-
-    <p>
-
-      <b>5. Improve:</b>
-      Consistent learning and practice help
-      students improve their confidence.
-
-    </p>
-
-  </section>
-
-
-
-  <!-- ================= QUICK LINKS ================= -->
-
-  <section class="section quick-links">
-
-    <h2>
-      Quick Links
-    </h2>
-
-
-    <!-- TEACHERS -->
-
-    <a class="quick-button" href="teachers.html">
-      Our Teachers
-    </a>
-
-
-    <!-- CONTACT -->
-
-    <a class="quick-button" href="contact.html">
-      Contact Us
-    </a>
-
-
-    <!-- JOIN -->
-
-    <a class="quick-button" href="join.html">
-      Student Registration
-    </a>
-
-  </section>
-
-
-
-  <!-- ================= CONTACT PREVIEW ================= -->
-
-  <section class="section">
-
-    <h2>
-      Get in Touch
-    </h2>
-
-
-    <p style="text-align:center;">
-
-      For admission enquiries, class timings,
-      fees, and other information,
-      please contact us.
-
-    </p>
-
-
-    <p style="text-align:center;">
-
-      <b>Phone:</b> Your Phone Number
-
-      <br><br>
-
-      <b>Email:</b> Your Email Address
-
-      <br><br>
-
-      <b>Address:</b> Your Tuition Address
-
-    </p>
-
-
-    <div style="text-align:center;">
-
-      <!-- CONTACT PAGE -->
-
-      <a class="quick-button" href="contact.html">
-        Contact Us
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ================= JOIN ================= -->
-
-  <section class="section">
-
-    <h2>
-      Start Your Learning Journey
-    </h2>
-
-
-    <p style="text-align:center;">
-
-      Want to join AnshKnowledgeBase?
-      Fill out our student registration form
-      to begin your learning journey.
-
-    </p>
-
-
-    <div style="text-align:center;">
-
-      <!-- JOIN PAGE -->
-
-      <a class="hero-button" href="join.html">
-        Student Registration
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ================= FOOTER ================= -->
-
-  <footer>
-
-    <h2>
-      AnshKnowledgeBase
-    </h2>
-
-    <p>
-      Quality Education • Strong Concepts • Better Learning
-    </p>
-
-    <p>
-      © 2026 AnshKnowledgeBase. All Rights Reserved.
-    </p>
-
-  </footer>
+</div>
 
 
 </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+
+<div class="hero-content">
+
+<h1>
+
+Learn Better.<br>
+
+<span>Score Better.</span><br>
+
+Grow Better.
+
+</h1>
+
+
+<p>
+
+Welcome to <b>AnshKnowledgeBase</b> —
+a student-focused tuition platform designed
+to build strong concepts, improve confidence
+and help students achieve their academic goals.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="join.html"
+class="primary-btn">
+
+Join Our Tuition
+
+</a>
+
+
+<a href="teachers.html"
+class="secondary-btn">
+
+Meet Our Teachers
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-card">
+
+<h2>
+Why AnshKnowledgeBase?
+</h2>
+
+<p>
+A friendly and focused environment
+where students learn concepts instead
+of simply memorising answers.
+</p>
+
+
+<ul class="hero-list">
+
+<li>
+Clear Concept Explanation
+</li>
+
+<li>
+Regular Practice
+</li>
+
+<li>
+Personal Attention
+</li>
+
+<li>
+Doubt Solving
+</li>
+
+<li>
+Student Progress Focus
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+<div class="stats-container">
+
+
+<div class="stat">
+
+<h2>
+8+
+</h2>
+
+<p>
+Subjects
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h2>
+100%
+</h2>
+
+<p>
+Learning Focus
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h2>
+1:1
+</h2>
+
+<p>
+Student Attention
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h2>
+24/7
+</h2>
+
+<p>
+Learning Support
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+<div class="section">
+
+
+<div class="section-heading">
+
+<h2>
+About AnshKnowledgeBase
+</h2>
+
+<p>
+Our goal is to make learning simple,
+interesting and effective for every student.
+</p>
+
+</div>
+
+
+
+<div class="about-grid">
+
+
+<div class="about-card">
+
+<h3>
+Our Mission
+</h3>
+
+<p>
+
+AnshKnowledgeBase is a student-focused
+tuition platform where we help students
+understand difficult topics easily and
+develop strong academic fundamentals.
+
+</p>
+
+<p>
+
+We believe that every student can improve
+with the right guidance, regular practice
+and a positive learning environment.
+
+</p>
+
+</div>
+
+
+
+<div class="about-card">
+
+<h3>
+What Students Get
+</h3>
+
+<ul class="about-points">
+
+<li>
+Strong Concept Building
+</li>
+
+<li>
+Regular Academic Practice
+</li>
+
+<li>
+Doubt Solving Support
+</li>
+
+<li>
+Personal Attention
+</li>
+
+<li>
+Friendly Learning Environment
+</li>
+
+<li>
+Focus on Academic Progress
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     SUBJECTS
+========================= -->
+
+<section id="subjects">
+
+<div class="section">
+
+
+<div class="section-heading">
+
+<h2>
+Our Subjects
+</h2>
+
+<p>
+Learn important subjects with clear explanations,
+practice and proper guidance.
+</p>
+
+</div>
+
+
+
+<div class="subject-grid">
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+∑
+</div>
+
+<h3>
+Mathematics
+</h3>
+
+<p>
+Build strong mathematical concepts
+and problem-solving skills.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+🔬
+</div>
+
+<h3>
+Science
+</h3>
+
+<p>
+Understand scientific concepts
+with simple explanations.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+A
+</div>
+
+<h3>
+English
+</h3>
+
+<p>
+Improve grammar, vocabulary,
+writing and communication.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+ह
+</div>
+
+<h3>
+Hindi
+</h3>
+
+<p>
+Learn Hindi language and literature
+with better understanding.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+અ
+</div>
+
+<h3>
+Gujarati
+</h3>
+
+<p>
+Develop strong Gujarati language
+and writing skills.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+🌍
+</div>
+
+<h3>
+Social Science
+</h3>
+
+<p>
+Understand history, geography,
+civics and society.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+💻
+</div>
+
+<h3>
+Computer Science
+</h3>
+
+<p>
+Learn computer fundamentals
+and digital concepts.
+</p>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<div class="subject-icon">
+?
+</div>
+
+<h3>
+General Knowledge
+</h3>
+
+<p>
+Improve awareness and knowledge
+through regular learning.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="features">
+
+<div class="section">
+
+
+<div class="section-heading">
+
+<h2>
+Why Choose Us?
+</h2>
+
+<p>
+We focus on understanding, practice
+and continuous improvement.
+</p>
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+<div class="feature">
+
+<h3>
+Clear Concepts
+</h3>
+
+<p>
+Difficult topics are explained
+in a simple and understandable way.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>
+Regular Practice
+</h3>
+
+<p>
+Regular practice helps students
+improve accuracy and confidence.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>
+Personal Attention
+</h3>
+
+<p>
+We focus on the learning needs
+and progress of individual students.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>
+Doubt Solving
+</h3>
+
+<p>
+Students can ask questions and
+understand concepts without hesitation.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>
+Friendly Environment
+</h3>
+
+<p>
+A positive environment makes
+learning comfortable and effective.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>
+Student Progress
+</h3>
+
+<p>
+Our focus is on helping students
+continuously improve academically.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+<section class="teacher-section">
+
+<div class="teacher-container">
+
+<h2>
+Meet Our Teachers
+</h2>
+
+<p>
+
+Our dedicated teachers help students
+understand concepts clearly, solve doubts
+and improve their academic performance.
+
+</p>
+
+
+<a href="teachers.html"
+class="primary-btn">
+
+View Our Teachers
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ADMISSION
+========================= -->
+
+<section class="admission">
+
+<div class="section">
+
+<div class="admission-box">
+
+<h2>
+Start Your Learning Journey
+</h2>
+
+<p>
+
+Ready to learn, practice and improve?
+
+Register your details and take
+the first step towards better learning
+with AnshKnowledgeBase.
+
+</p>
+
+
+<a href="join.html"
+class="secondary-btn">
+
+Register Now
+
+</a>
+
+
+<a href="contact.html"
+class="primary-btn">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+<div class="footer-grid">
+
+
+<div class="footer-col">
+
+<h3>
+AnshKnowledgeBase
+</h3>
+
+<p>
+
+Quality education, strong concepts
+and a better learning environment
+for students.
+
+</p>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="teachers.html">
+Our Teachers
+</a>
+
+<a href="contact.html">
+Contact Us
+</a>
+
+<a href="join.html">
+Join Our Tuition
+</a>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h3>
+Subjects
+</h3>
+
+<a href="#subjects">
+Mathematics
+</a>
+
+<a href="#subjects">
+Science
+</a>
+
+<a href="#subjects">
+English
+</a>
+
+<a href="#subjects">
+Social Science
+</a>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h3>
+Contact
+</h3>
+
+<p>
+Address:<br>
+YOUR TUITION ADDRESS
+</p>
+
+<p>
+Phone:<br>
+YOUR PHONE NUMBER
+</p>
+
+<p>
+Email:<br>
+YOUR EMAIL ADDRESS
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+© 2026 AnshKnowledgeBase.
+All Rights Reserved.
+
+</div>
+
+
+</footer>
 
 
 </body>
