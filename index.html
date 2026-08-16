@@ -1,62 +1,197 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Our Teachers - AnshKnowledgeBase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Teachers - AnshKnowledgeBase</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("background.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #222;
+        }
+
+        .overlay {
+            min-height: 100vh;
+            padding: 30px 15px;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0645ad;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .teacher {
+            background: rgba(255, 255, 255, 0.82);
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher h2 {
+            margin-top: 0;
+            color: #d00000;
+        }
+
+        .teacher p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #003b73;
+        }
+
+        .home-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 10px;
+            padding: 12px 22px;
+            background: #0645ad;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .home-button:hover {
+            background: #002b70;
+        }
+    </style>
 </head>
 
-<body style="background:linear-gradient(135deg,#eaf8ff,#b8e3ff,#ffffff);">
+<body>
 
-<h1 style="color:green">Our Teachers</h1>
+<div class="overlay">
 
-<p>
-Meet our dedicated teachers and learn about their qualifications,
-subjects, and teaching experience.
-</p>
+    <div class="container">
 
-<hr>
+        <h1>Our Teachers</h1>
 
-<h2 style="color:red">Ansh Upadhyay</h2>
+        <p class="intro">
+            Meet our dedicated teachers and learn about their
+            qualifications, subjects, and teaching experience.
+        </p>
 
-<p><b>Name:</b> Ansh Upadhyay</p>
 
-<p><b>Qualification:</b> 10th</p>
+        <!-- Ansh Upadhyay -->
+        <div class="teacher">
 
-<p><b>Subjects:</b> Science and Mathematics</p>
+            <h2>Ansh Upadhyay</h2>
 
-<p><b>Experience:</b> 2+ Years</p>
+            <p>
+                <span class="label">Name:</span>
+                Ansh Upadhyay
+            </p>
 
-<hr>
+            <p>
+                <span class="label">Qualification:</span>
+                10th
+            </p>
 
-<h2 style="color:red">Ravi Upadhyay</h2>
+            <p>
+                <span class="label">Subjects:</span>
+                Science and Mathematics
+            </p>
 
-<p><b>Name:</b> Ravi Upadhyay</p>
+            <p>
+                <span class="label">Experience:</span>
+                2+ Years
+            </p>
 
-<p><b>Qualification:</b> B.Com., M.Com.</p>
+        </div>
 
-<p><b>Subjects:</b> Commerce</p>
 
-<p><b>Experience:</b> 5+ Years</p>
+        <!-- Ravi Upadhyay -->
+        <div class="teacher">
 
-<hr>
+            <h2>Ravi Upadhyay</h2>
 
-<h2 style="color:red">Amit Upadhyay</h2>
+            <p>
+                <span class="label">Name:</span>
+                Ravi Upadhyay
+            </p>
 
-<p><b>Name:</b> Amit Upadhyay</p>
+            <p>
+                <span class="label">Qualification:</span>
+                B.Com., M.Com.
+            </p>
 
-<p><b>Qualification:</b> B.A., M.A. (History), B.Ed.</p>
+            <p>
+                <span class="label">Subjects:</span>
+                Commerce
+            </p>
 
-<p><b>Subjects:</b> Social Science and History</p>
+            <p>
+                <span class="label">Experience:</span>
+                5+ Years
+            </p>
 
-<p><b>Experience:</b> 4+ Years</p>
+        </div>
 
-<hr>
 
-<br>
+        <!-- Amit Upadhyay -->
+        <div class="teacher">
 
-<a href="index.html">
-  <button>Back to Home</button>
-</a>
+            <h2>Amit Upadhyay</h2>
+
+            <p>
+                <span class="label">Name:</span>
+                Amit Upadhyay
+            </p>
+
+            <p>
+                <span class="label">Qualification:</span>
+                B.A., M.A. (History), B.Ed.
+            </p>
+
+            <p>
+                <span class="label">Subjects:</span>
+                Social Science and History
+            </p>
+
+            <p>
+                <span class="label">Experience:</span>
+                4+ Years
+            </p>
+
+        </div>
+
+
+        <a class="home-button" href="index.html">
+            Back to Home
+        </a>
+
+    </div>
+
+</div>
 
 </body>
 </html>
