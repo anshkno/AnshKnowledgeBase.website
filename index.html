@@ -2,81 +2,96 @@
 <html>
 
 <head>
-
   <title>AnshKnowledgeBase</title>
 
   <style>
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-    }
-
     body {
+      margin: 0;
+      padding: 25px;
       font-family: Arial, sans-serif;
 
-      background-image: url("./background.png");
+      background-image: url('Background 2.png');
       background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      background-position: center;
       background-attachment: fixed;
+      background-repeat: no-repeat;
 
-      min-height: 100vh;
-    }
-
-    .content {
-      min-height: 100vh;
-
-      padding: 30px;
-
-      background: rgba(255, 255, 255, 0.60);
+      color: #222;
     }
 
     h1 {
-      text-align: center;
-      color: red;
+      color: #b00000;
+      font-size: 36px;
     }
 
-    button {
+    h2 {
+      color: #b00000;
+      margin-top: 30px;
+    }
+
+    h3 {
+      color: #8b0000;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.82);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+    }
+
+    .button {
+      display: inline-block;
       padding: 12px 20px;
-      margin: 5px;
-
-      font-size: 16px;
-      font-weight: bold;
-
+      margin: 8px;
+      background: #d40000;
       color: white;
-      background-color: #1455a0;
-
-      border: none;
+      text-decoration: none;
       border-radius: 8px;
-
-      cursor: pointer;
+      font-weight: bold;
     }
 
-    button:hover {
-      background-color: #0b376b;
+    .button:hover {
+      background: #ff9800;
+    }
+
+    hr {
+      border: 0;
+      border-top: 2px solid #d40000;
+      margin: 25px 0;
     }
 
   </style>
-
 </head>
 
 
 <body>
 
-<div class="content">
-
-
 <h1>Welcome to AnshKnowledgeBase</h1>
 
+<div class="section">
 
-<p style="color:blue">
+<p>
 AnshKnowledgeBase is dedicated to providing quality education,
 building strong concepts, and helping students learn with confidence.
 </p>
 
+</div>
 
-<h2 style="color:red">About Our Tuition</h2>
+
+<div class="section">
+
+<h2>About Our Tuition</h2>
 
 <p>
 AnshKnowledgeBase is a student-focused tuition platform where we help
@@ -84,31 +99,30 @@ students understand difficult topics easily, build strong fundamentals,
 and improve their academic performance through regular learning and practice.
 </p>
 
+</div>
 
-<h2 style="color:red">Our Subjects</h2>
+
+<div class="section">
+
+<h2>Our Subjects</h2>
 
 <ul>
-
-  <li style="color:blue">Mathematics</li>
-
-  <li style="color:blue">Science</li>
-
-  <li style="color:blue">English</li>
-
-  <li style="color:blue">Hindi</li>
-
-  <li style="color:blue">Gujarati</li>
-
-  <li style="color:blue">Social Science</li>
-
-  <li style="color:blue">Computer Science</li>
-
-  <li style="color:blue">General Knowledge</li>
-
+  <li>Mathematics</li>
+  <li>Science</li>
+  <li>English</li>
+  <li>Hindi</li>
+  <li>Gujarati</li>
+  <li>Social Science</li>
+  <li>Computer Science</li>
+  <li>General Knowledge</li>
 </ul>
 
+</div>
 
-<h2 style="color:green">Meet Our Teachers</h2>
+
+<div class="section">
+
+<h2>Meet Our Teachers</h2>
 
 <p>
 Our teachers are dedicated to helping students understand concepts clearly,
@@ -116,146 +130,134 @@ solve their doubts, and improve their academic performance.
 </p>
 
 
-<h2 style="color:green">Teacher Qualification</h2>
+<h2>Teacher Qualification</h2>
 
 <p>
 Our teachers have different educational backgrounds and teaching experience
 in various subjects.
 </p>
 
+</div>
 
-<h2 style="color:purple">Why Choose AnshKnowledgeBase?</h2>
+
+<div class="section">
+
+<h2>Why Choose AnshKnowledgeBase?</h2>
 
 <ul>
-
   <li>Clear Concept Explanation</li>
-
   <li>Personal Attention</li>
-
   <li>Regular Practice</li>
-
   <li>Doubt Solving</li>
-
   <li>Friendly Learning Environment</li>
-
   <li>Focus on Student Progress</li>
-
 </ul>
 
-
-<h2 style="color:orange">Quick Links</h2>
-
-
-<a href="teachers.html">
-  <button>Our Teachers</button>
-</a>
+</div>
 
 
-<a href="contact.html">
-  <button>Contact Us</button>
-</a>
+<div class="section">
+
+<h2>Quick Links</h2>
+
+<a class="button" href="#teachers">Our Teachers</a>
+
+<a class="button" href="#contact">Contact Us</a>
+
+<a class="button" href="#join">Join Our Tuition</a>
+
+</div>
 
 
-<a href="join.html">
-  <button>Join Our Tuition</button>
-</a>
+<div class="section" id="teachers">
+
+<h2>Our Teachers</h2>
 
 
-<br><br>
+<h3>Teacher 1 - Ansh Upadhyay</h3>
 
+<p><b>Name:</b> Ansh Upadhyay</p>
+
+<p><b>Qualification:</b> 10th</p>
+
+<p><b>Subjects:</b> Science and Mathematics</p>
+
+<p><b>Experience:</b> 2+ Years</p>
+
+
+<hr>
+
+
+<h3>Teacher 2 - Ravi Upadhyay</h3>
+
+<p><b>Name:</b> Ravi Upadhyay</p>
+
+<p><b>Qualification:</b> B.Com., M.Com.</p>
+
+<p><b>Subjects:</b> Commerce</p>
+
+<p><b>Experience:</b> 5+ Years</p>
+
+
+<hr>
+
+
+<h3>Teacher 3 - Amit Upadhyay</h3>
+
+<p><b>Name:</b> Amit Upadhyay</p>
+
+<p><b>Qualification:</b> B.A., M.A. (History), B.Ed.</p>
+
+<p><b>Subjects:</b> Social Science and History</p>
+
+<p><b>Experience:</b> 4+ Years</p>
+
+</div>
+
+
+<div class="section" id="contact">
+
+<h2>Contact Us</h2>
 
 <p>
-Thank you for visiting AnshKnowledgeBase.
+For admission enquiries, class timings, fees, and other information,
+please get in touch with us.
 </p>
 
+<p><b>Phone:</b> Your Phone Number</p>
+
+<p><b>Email:</b> Your Email Address</p>
+
+<p><b>Address:</b> Your Tuition Address</p>
 
 </div>
 
-</body>
 
-</html>            </p>
+<div class="section" id="join">
 
-            <p>
-                <span class="label">Qualification:</span>
-                10th
-            </p>
+<h2>Join Our Tuition</h2>
 
-            <p>
-                <span class="label">Subjects:</span>
-                Science and Mathematics
-            </p>
+<p>
+Join AnshKnowledgeBase and start your learning journey with us.
+We are here to help you learn, practice, and achieve your academic goals.
+</p>
 
-            <p>
-                <span class="label">Experience:</span>
-                2+ Years
-            </p>
-
-        </div>
-
-
-        <!-- Ravi Upadhyay -->
-        <div class="teacher">
-
-            <h2>Ravi Upadhyay</h2>
-
-            <p>
-                <span class="label">Name:</span>
-                Ravi Upadhyay
-            </p>
-
-            <p>
-                <span class="label">Qualification:</span>
-                B.Com., M.Com.
-            </p>
-
-            <p>
-                <span class="label">Subjects:</span>
-                Commerce
-            </p>
-
-            <p>
-                <span class="label">Experience:</span>
-                5+ Years
-            </p>
-
-        </div>
-
-
-        <!-- Amit Upadhyay -->
-        <div class="teacher">
-
-            <h2>Amit Upadhyay</h2>
-
-            <p>
-                <span class="label">Name:</span>
-                Amit Upadhyay
-            </p>
-
-            <p>
-                <span class="label">Qualification:</span>
-                B.A., M.A. (History), B.Ed.
-            </p>
-
-            <p>
-                <span class="label">Subjects:</span>
-                Social Science and History
-            </p>
-
-            <p>
-                <span class="label">Experience:</span>
-                4+ Years
-            </p>
-
-        </div>
-
-
-        <a class="home-button" href="index.html">
-            Back to Home
-        </a>
-
-    </div>
+<p>
+<b>Admission:</b> Contact us for admission details and class timings.
+</p>
 
 </div>
 
+
+<div class="section">
+
+<p>
+<b>Thank you for visiting AnshKnowledgeBase.</b>
+</p>
+
+</div>
+
+
 </body>
+
 </html>
